@@ -1,0 +1,20 @@
+<header>
+  <div class="navbar-fixed">
+    <nav class="top-nav indigo valign-wrapper">
+      <div class="container">
+        <a href="#" class="brand-logo grey-text text-lighten-3">Uhura</a>
+          <ul class="right hide-on-med-and-down">
+              <% if current_user %>
+                <li><a href="#" class="dropdown-button" data-activates='dropdown1'><%= image_tag current_user.image, class: "circle responsive-img valign" %></a></li>
+              <% else %>
+                <li><%= link_to "Sign in with Google", login_path, class: "waves-effect waves-light btn indigo lighten-3" %></li>
+              <% end %>
+            </ul>
+        </div>
+      </nav>
+  </div>
+
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><%= link_to "Logout", logout_path %></li>
+  </ul>
+</header>

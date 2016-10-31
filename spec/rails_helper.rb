@@ -29,3 +29,25 @@ VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"
   config.hook_into :webmock
 end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+    provider: "google",
+    uid: "111170661645334345595",
+    info: {
+      name: "Jesse Spevack",
+      email: "jspevack@gmail.com",
+      first_name: "Jesse",
+      last_name: "Spevack",
+      image: "https://lh3.googleusercontent.com/-ZI4ojL91GxA/AAAAAAAAAAI/AAAAAAAAGVo/1F5PGMtlgHI/s50-c/photo.jpg",
+      urls: "https://plus.google.com/111170661645334345595"
+    },
+    credentials: {
+      token: "my_token",
+      refresh_token: "another_token",
+      expires_at: "1477945241",
+      expires: "true"
+    }
+  })
+end

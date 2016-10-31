@@ -1,24 +1,5 @@
-# README
+# Uhura
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Read Me
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Uhura is a school communication platform that allows educators to send single or group sms messages to students and their families with optional message translation. Uhura is developed by Jesse Spevack for his personal project at the Turing School of Software Design. The name Uhura is a reference to the Star Trek character Uhura, who was the communication officer in the original series.

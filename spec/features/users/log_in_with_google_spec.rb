@@ -15,8 +15,3 @@ RSpec.feature "user logs in" do
     expect(page).to have_css(".fixed-action-btn")
   end
 end
-
-#
-# allow_any_instance_of(ApplicationController)
-#     .to_receive(:current_user)
-#     .and_return(user)

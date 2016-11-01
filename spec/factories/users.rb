@@ -1,16 +1,16 @@
 FactoryGirl.define do
   factory :user do
-    provider "MyString"
-    uid "MyString"
-    name "MyString"
-    email "MyString"
-    first_name "MyString"
-    last_name "MyString"
-    image "MyString"
-    urls "MyString"
-    token "MyString"
-    refresh_token "MyString"
-    expires_at "2016-10-31 13:58:39"
-    expires false
+    provider "google"
+    uid { Faker::Number.number(10) }
+    name { "#{Faker::Name.first_name} #{Faker::Name.last_name }" }
+    email { Faker::Internet.email }
+    first_name { name.split('')[0] }
+    last_name { name.split('')[1] }
+    image { Faker::Avatar.image("my-own-slug", "32x32") }
+    urls { Faker::Internet.url }
+    token { Faker::Crypto.md5 }
+    refresh_token { Faker::Crypto.md5 }
+    expires_at { Faker::Time.forward(1, :morning) }
+    expires true
   end
 end

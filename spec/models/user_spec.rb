@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
+  it { should have_many(:groups) }
 
   describe "role" do
     let(:hierarchy) { [:teacher, :admin, :district_admin, :super_admin] }

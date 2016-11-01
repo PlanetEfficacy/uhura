@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_many :groups
+
   enum role: [:teacher, :admin, :district_admin, :super_admin]
 
   def self.update_or_create(auth)

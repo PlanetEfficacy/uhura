@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.feature "user creates a student" do
   scenario "by completing the new student form" do
     user = FactoryGirl.create(:user)
-    group = FactoryGirl.create(:group, user: user)
-    student = FactoryGirl.attributes_for(:student)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit groups_path
-    click_link "Add Student"
+    student = FactoryGirl.attributes_for(:student)
+
+    visit root_path
+    find("#new-student").click
     expect(current_path).to eq(new_student_path)
 
     fill_in "First name", with: student.first_name #{ Faker::Name.first_name }

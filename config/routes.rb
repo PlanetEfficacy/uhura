@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get   'logout',                   to: 'sessions#destroy'
 
   resources :groups, only: [:index, :new, :create]
+
+  resources :students, only: [:new]
 end

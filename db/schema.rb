@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101201841) do
+ActiveRecord::Schema.define(version: 20161102200619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enrollments", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_enrollments_on_group_id", using: :btree
+    t.index ["student_id"], name: "index_enrollments_on_student_id", using: :btree
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +30,14 @@ ActiveRecord::Schema.define(version: 20161101201841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "language_code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,5 +59,7 @@ ActiveRecord::Schema.define(version: 20161101201841) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "enrollments", "groups"
+  add_foreign_key "enrollments", "students"
   add_foreign_key "groups", "users"
 end

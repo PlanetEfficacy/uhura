@@ -23,3 +23,21 @@ main {
   z-index: 1;
   will-change: width, height;
 }
+
+img.logo{
+    width:150px;
+    height: auto;
+}
+
+img.logo-footer{
+    width:80px;
+    height: auto;
+}
+
+.top-nav {
+  height: 80px
+}
+
+.small-space {
+  height: 40px
+}

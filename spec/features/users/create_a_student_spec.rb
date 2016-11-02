@@ -11,10 +11,10 @@ RSpec.feature "user creates a student" do
     find("#new-student").click
     expect(current_path).to eq(new_student_path)
 
-    fill_in "First name", with: student.first_name #{ Faker::Name.first_name }
-    fill_in "Last name", with: student.last_name # { Faker::Name.last_name }
-    fill_in "Phone number", with: student.phone_number #{ Faker::PhoneNumber.cell_phone }
-    select "English", from: "languageSelect"
+    fill_in "First name", with: student[:first_name]
+    fill_in "Last name", with: student[:last_name]
+    fill_in "contact_phone_number", with: student[:phone_number]
+    find(:css, "#language-select").set("English")
 
     click_on "Create"
     within ".card.student" do

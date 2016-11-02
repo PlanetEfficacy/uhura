@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :new, :create]
 
-  resources :students, only: [:new]
+  resources :students, only: [:new, :create]
 end

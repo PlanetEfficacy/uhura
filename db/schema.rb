@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102200619) do
+ActiveRecord::Schema.define(version: 20161102232818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.boolean  "default"
+    t.string   "phone_number"
+    t.string   "contactable_type"
+    t.integer  "contactable_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["contactable_type", "contactable_id"], name: "index_contacts_on_contactable_type_and_contactable_id", using: :btree
+  end
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "group_id"
@@ -32,12 +42,20 @@ ActiveRecord::Schema.define(version: 20161102200619) do
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
 
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "language_code"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "school_id"
+    t.index ["school_id"], name: "index_students_on_school_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,9 +75,13 @@ ActiveRecord::Schema.define(version: 20161102200619) do
     t.boolean  "expires"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "school_id"
+    t.index ["school_id"], name: "index_users_on_school_id", using: :btree
   end
 
   add_foreign_key "enrollments", "groups"
   add_foreign_key "enrollments", "students"
   add_foreign_key "groups", "users"
+  add_foreign_key "students", "schools"
+  add_foreign_key "users", "schools"
 end

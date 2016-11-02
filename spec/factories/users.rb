@@ -4,8 +4,8 @@ FactoryGirl.define do
     uid { Faker::Number.number(10) }
     name { "#{Faker::Name.first_name} #{Faker::Name.last_name }" }
     email { Faker::Internet.email }
-    first_name { name.split('')[0] }
-    last_name { name.split('')[1] }
+    first_name { name.split(' ')[0] }
+    last_name { name.split(' ')[1] }
     image { Faker::Avatar.image("my-own-slug", "32x32") }
     urls { Faker::Internet.url }
     token { Faker::Crypto.md5 }

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :contact do
-    default false
-    phone_number "MyString"
-    contactable nil
+    default true
+    phone_number { Faker::PhoneNumber.phone_number }
+    association :contactable, factory: :student
   end
 end

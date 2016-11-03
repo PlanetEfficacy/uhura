@@ -10,4 +10,11 @@ RSpec.describe Student, type: :model do
      student = FactoryGirl.create(:student)
      expect(student.users).to eq(student.teachers)
    end
+
+   it "has a phone number" do
+     student = FactoryGirl.create(:student)
+     contact = FactoryGirl.create(:contact, contactable: student)
+
+     expect(student.phone_number).to eq(contact.phone_number)
+   end
 end

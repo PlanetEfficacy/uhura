@@ -2,7 +2,7 @@
   <div class="navbar-fixed">
     <nav class="top-nav indigo valign-wrapper">
       <div class="container">
-        <a href="#" class="brand-logo"><%= image_tag "logo.png", class: "responsive-img logo" %></a>
+        <a href="<% root_path %>" class="brand-logo"><%= image_tag "logo.png", class: "responsive-img logo" %></a>
           <ul class="right hide-on-med-and-down">
               <% if current_user %>
                 <li><a href="#" class="dropdown-button" data-activates='dropdown1' data-hover="true" data-beloworigin="true"><%= image_tag current_user.image, class: "circle responsive-img valign" %></a></li>

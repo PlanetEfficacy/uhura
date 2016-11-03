@@ -16,9 +16,17 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @students = current_group.students
+  end
+
   private
 
   def group_params
     params.require(:group).permit(:name)
+  end
+
+  def current_group
+    Group.find(params[:id])
   end
 end

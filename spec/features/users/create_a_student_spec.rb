@@ -21,11 +21,9 @@ RSpec.feature "user creates a student" do
     expect(current_path).to eq(group_path(group))
     within ".card.student" do
       expect(current_path).to eq(group_path(group))
-      expect(page).to have_content(student.first_name)
-      expect(page).to have_content(student.last_name)
-      expect(page).to have_content(student.phone_number)
-      expect(page).to have_content("English")
-      expect(page).to have_link("Message")
+      expect(page).to have_content(student[:first_name])
+      expect(page).to have_content(student[:last_name])
+      expect(page).to have_css("a.message")
     end
   end
 end

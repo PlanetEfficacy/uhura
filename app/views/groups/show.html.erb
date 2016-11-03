@@ -1,0 +1,20 @@
+<div class="container row">
+  <% @students.each do |student| %>
+    <div class="col s12 m6 offset-m3">
+      <div class="card student">
+        <div class="card-content">
+          <div class="row">
+            <div class="col s8 m8">
+              <p class="flow-text">
+                <%= student.first_name %> <%= student.last_name %>
+              </p>
+            </div>
+            <div class="col s1 m1 offset-m2 offset-s2">
+              <%= link_to content_tag(:i, "textsms", class: ["small", "material-icons"]), nil, class: "waves-effect waves-light indigo darken-3 btn-floating message"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

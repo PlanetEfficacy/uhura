@@ -19,11 +19,13 @@ RSpec.feature "user creates a student" do
     click_on "Create"
 
     expect(current_path).to eq(group_path(group))
-    within ".card.student" do
+    within ".collection-item" do
       expect(current_path).to eq(group_path(group))
       expect(page).to have_content(student[:first_name])
       expect(page).to have_content(student[:last_name])
-      expect(page).to have_css("a.message")
+      expect(page).to have_content("555-555-5555")
+      expect(page).to have_content("English")
+      expect(page).to have_content("textsms")
     end
   end
 end

@@ -1,35 +1,16 @@
 <div class="container row">
-  <ul class="collection">
+  <ul class="collection col s12 m6 offset-m3">
   <% @students.each do |student| %>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">account_circle</i>
-      <span class="title"><%= student.first_name %> <%= student.last_name %></span>
-      <p><%= student.phone_number %><br>
-         <%= student.language %>
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">smstext</i></a>
+    <li class="collection-item valign-wrapper">
+      <div class="center-align">
+        <%= link_to content_tag(:i, "textsms", class: "material-icons"),
+        nil, id: nil, class: "btn-floating indigo darken-3" %>
+      </div>
+      <div class="col offset-m1">
+        <h5><%= student.first_name %> <%= student.last_name %></h5>
+        <p><%= student.phone_number %> <small><%= student.language %><small></p>
+      </div>
     </li>
   <% end %>
   </ul>
-</div>
-
-
-
-
-
-<div class="col s12 m6 offset-m3">
-  <div class="card student">
-    <div class="card-content">
-      <div class="row">
-        <div class="col s8 m8">
-          <p class="flow-text">
-
-          </p>
-        </div>
-        <div class="col s1 m1 offset-m2 offset-s2">
-          <%= link_to content_tag(:i, "textsms", class: ["small", "material-icons"]), nil, class: "waves-effect waves-light indigo darken-3 btn-floating message"%>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>

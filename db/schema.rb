@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 20161102232818) do
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
-    t.boolean  "default"
+    t.boolean  "default",          default: true
     t.string   "phone_number"
     t.string   "contactable_type"
     t.integer  "contactable_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["contactable_type", "contactable_id"], name: "index_contacts_on_contactable_type_and_contactable_id", using: :btree
   end
 

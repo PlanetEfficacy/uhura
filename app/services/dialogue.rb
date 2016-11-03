@@ -13,4 +13,12 @@ module Dialogue
     "te a new group, set the group name below and click \"cr" + \
     "eate\"."
   end
+
+  def self.new_message_help
+    "Messages are sent via sms to students, guardians, and o" + \
+    "r groups. They are automatically translated into your t" + \
+    "he default language of your selected recipient. to crea" + \
+    "te a new message, complete type a message in the field " + \
+    "below and click \"send\"."
+  end
 end

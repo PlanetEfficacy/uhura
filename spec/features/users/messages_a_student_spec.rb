@@ -11,9 +11,14 @@ RSpec.feature "user messages a student" do
 
     visit group_path(group)
     find(".btn-floating").click
+
     expect(current_path).to eq(new_message_path)
 
-    fill_in "Message", with: "This is a test text message"
+    within "h4.contact-header" do
+      expect(page).to have_content("Message to: #{student.name}")
+    end
+
+    fill_in "Body", with: "This is a test text message"
 
     click_on "Send"
 

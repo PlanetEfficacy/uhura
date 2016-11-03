@@ -7,6 +7,8 @@ class Student < ApplicationRecord
 
   alias_attribute :teachers, :users
 
+  include FullName
+  
   def phone_number
     primary_contact.phone_number
   end

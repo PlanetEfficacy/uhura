@@ -31,4 +31,10 @@ RSpec.describe Student, type: :model do
 
      expect(student.language).to eq("Spanish")
    end
+
+   it "has a full name" do
+      student = FactoryGirl.create(:student)
+
+      expect(student.name).to eq("#{student.first_name} #{student.last_name}")
+   end
 end

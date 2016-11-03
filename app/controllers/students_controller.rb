@@ -19,6 +19,10 @@ class StudentsController < ApplicationController
     # @students =
   end
 
+  def show
+    @student = current_student
+  end
+
   private
 
     def student_params
@@ -33,6 +37,10 @@ class StudentsController < ApplicationController
 
     def current_group
       Group.find(params[:group_id])
+    end
+
+    def current_student
+      Student.find(params[:id])
     end
 
 end

@@ -5,7 +5,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-    redirect_to student_path(current_student)
+    translate_message = TranslateMessage.new(@message)
+    return_value = translate_message.send
+    if TranslateMessage.success?(return_value)
+      @message.save!
+      redirect_to student_path(@message.contact.contactable)
+    else
+      # sad path
+    end
   end
 
   private

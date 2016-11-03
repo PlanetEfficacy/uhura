@@ -21,6 +21,10 @@ class TranslateMessage
                         body: message})
   end
 
+  def self.success?(return_value)
+    return_value.class == Twilio::REST::Message
+  end
+
   private
 
     def translate

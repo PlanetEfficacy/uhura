@@ -30,4 +30,17 @@ RSpec.describe TranslateMessage do
       expect(return_value.class).to eq(Twilio::REST::Message)
     end
   end
+
+  it "knows if it was successful" do
+    user = FactoryGirl.create(:user, phone_number: ENV["TWILIO_PHONE"])
+    student = FactoryGirl.create(:student, language_code: "en")
+    contact = FactoryGirl.create(:contact, phone_number: ENV["PHONE"], contactable: student)
+    message = FactoryGirl.create(:message, user: user, contact: contact)
+
+    translate_message = TranslateMessage.new(message)
+    return_value = translate_message.send
+
+    expect(TranslateMessage.success?(return_value)).to eq(true)
+  end
+
 end

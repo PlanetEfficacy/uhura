@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get   'auth/:provider/callback',  to: 'sessions#create'
   get   'logout',                   to: 'sessions#destroy'
 
-  resources :groups, only: [:index, :new, :create]
+  resources :groups, only: [:index, :new, :create, :show]
+
+  resources :students, only: [:new, :create]
 end

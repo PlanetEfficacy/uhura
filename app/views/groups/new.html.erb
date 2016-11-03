@@ -1,6 +1,6 @@
 <div class="container">
   <h4>
-    New Student Group
+    New Group
     <%= render 'shared/help_button' %>
   </h4>
 
@@ -8,13 +8,13 @@
     <%= form_for @group do |f| %>
       <div class="input-field">
         <%= f.label :name %>
-        <%= f.text_field :name, class: "" %>
+        <%= f.text_field :name %>
       </div>
       <div class="input-field align-right">
-        <%= f.submit "Create", class: "btn waves-effect waves-light amber accent-2"  %>
+        <%= f.submit "Create", class: "btn waves-effect waves-light indigo darken-3"  %>
       </div>
     <% end %>
   </div>
 
-  <%= render 'shared/help_modal', header: "Groups", text: "Groups of students are any set of students you want to message at one time. Teachers can have many groups and a single student can be a part of many classes. To create a new group, set the group name below and click \"create\"." %>
+  <%= render 'shared/help_modal', header: "Groups", text: Dialogue.new_group_help  %>
 </div>

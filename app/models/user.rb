@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
   has_many :groups
+  has_many :enrollments, through: :groups
+  has_many :students, through: :enrollments
 
   enum role: [:teacher, :admin, :district_admin, :super_admin]
 

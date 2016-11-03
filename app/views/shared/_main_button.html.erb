@@ -1,0 +1,10 @@
+<% if current_user %>
+  <div class="fixed-action-btn">
+    <%= link_to content_tag(:i, "add", class: ["large", "material-icons"]), new_group_path, class: "btn-floating btn-large waves-effect waves-light amber accent-2" %>
+    <ul>
+      <%= render 'shared/sm_button', icon: "textsms", path: nil, id: "new-message" %>
+      <%= render 'shared/sm_button', icon: "account_circle", path: new_student_path, id: "new-student" %>
+      <%= render 'shared/sm_button', icon: "group_work", path: new_group_path, id: "new-group" %>
+    </ul>
+  </div>
+<% end %>

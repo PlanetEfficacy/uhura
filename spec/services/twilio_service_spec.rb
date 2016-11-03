@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe TwilioService do
   it "sends sms messages" do
     VCR.use_cassette("twilio_service") do
-      user_phone_number = "+13474921685"
-      contact_phone_number = "6467530657"
+      user_phone_number = ENV["TWILIO_PHONE"]
+      contact_phone_number = ENV["PHONE"]
       message = "Hello world!"
 
       twilio_return = TwilioService.send({to: contact_phone_number,

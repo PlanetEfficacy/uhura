@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :message do
-    user nil
-    contact nil
-    body "MyString"
+    user
+    contact
+    body "Hello world! #{Time.now}"
   end
 end

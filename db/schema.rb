@@ -83,8 +83,9 @@ ActiveRecord::Schema.define(version: 20161103164614) do
     t.string   "refresh_token"
     t.datetime "expires_at"
     t.boolean  "expires"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "language_code", default: "en"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "school_id"
     t.index ["school_id"], name: "index_users_on_school_id", using: :btree
   end

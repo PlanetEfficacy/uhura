@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :refresh_token
       t.datetime :expires_at
       t.boolean :expires
+      t.string :language_code, default: "en"
 
       t.timestamps
     end

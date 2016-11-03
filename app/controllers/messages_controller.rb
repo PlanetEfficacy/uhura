@@ -5,7 +5,6 @@ class MessagesController < ApplicationController
 
   def create
     @message = current_user.messages.new(message_params)
-    binding.pry
     redirect_to student_path(current_student)
   end
 

@@ -9,4 +9,8 @@ class Student < ApplicationRecord
   def phone_number
     contacts.find_by(default: true).phone_number
   end
+
+  def language
+    Languages.find(language_code)
+  end
 end

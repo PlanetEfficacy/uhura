@@ -17,4 +17,10 @@ RSpec.describe Student, type: :model do
 
      expect(student.phone_number).to eq(contact.phone_number)
    end
+
+   it "has a language" do
+     student = FactoryGirl.create(:student, language_code: "es")
+
+     expect(student.language).to eq("Spanish")
+   end
 end

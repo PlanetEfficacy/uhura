@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :new, :create, :show]
 
   resources :students, only: [:new, :create]
+
+  resources :messages, only: [:new]
 end

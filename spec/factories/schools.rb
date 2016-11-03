@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :school do
-    name "MyString"
+    name { Faker::Educator.secondary_school }
   end
 end

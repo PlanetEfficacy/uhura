@@ -6,6 +6,7 @@
 
   <div class="row">
     <%= form_for @student do |f| %>
+      <%= hidden_field_tag "group_id", @group_id %>
       <div class="input-field">
         <%= f.label :first_name %>
         <%= f.text_field :first_name %>

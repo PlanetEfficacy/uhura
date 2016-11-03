@@ -16,7 +16,7 @@ RSpec.feature "user creates a group" do
 
     within "div.card" do
       expect(page).to have_content("605")
-      expect(page).to have_link("Add Students")
+      expect(page).to have_link("Add Student")
       expect(page).to have_link("Upload Students")
     end
   end

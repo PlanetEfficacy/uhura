@@ -8,8 +8,8 @@
               <h5><%= group.name %></h5>
             </div>
             <div class="card-action">
-              <a href="#">Add Students</a>
-              <a href="#">Upload Students</a>
+              <a href="<%= new_student_path(group_id: group.id) %>" class="indigo-text text-darken-3">Add Student</a>
+              <a href="#" class="indigo-text text-darken-3">Upload Students</a>
             </div>
           </div>
         </div>

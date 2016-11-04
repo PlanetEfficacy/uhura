@@ -1,10 +1,10 @@
 <% if current_user %>
   <div class="fixed-action-btn">
-    <%= link_to content_tag(:i, "add", class: ["large", "material-icons"]), new_group_path, class: "btn-floating btn-large waves-effect waves-light amber accent-2" %>
+    <%= render "shared/buttons/lg_amber", icon: "add", path: new_group_path %>
     <ul>
-      <%= render 'shared/sm_button', icon: "textsms", path: nil, id: "new-message" %>
-      <%= render 'shared/sm_button', icon: "account_circle", path: new_student_path, id: "new-student" %>
-      <%= render 'shared/sm_button', icon: "group_work", path: new_group_path, id: "new-group" %>
+      <%= render "shared/buttons/sm", icon: "textsms", path: nil, id: "new-message" %>
+      <%= render "shared/buttons/sm", icon: "account_circle", path: new_student_path, id: "new-student" %>
+      <%= render "shared/buttons/sm", icon: "group_work", path: new_group_path, id: "new-group" %>
     </ul>
   </div>
 <% end %>

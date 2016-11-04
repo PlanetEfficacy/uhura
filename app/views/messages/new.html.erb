@@ -1,7 +1,7 @@
 <div class="container">
   <h4 class="contact-header">
     Message to: <%= @message.contact.contactable.name %>
-    <%= render 'shared/help_button' %>
+    <%= render 'shared/help/button' %>
   </h4>
 
   <div class="row">
@@ -17,5 +17,5 @@
     <% end %>
   </div>
 
-  <%= render 'shared/help_modal', header: "Message", text: Dialogue.new_message_help  %>
+  <%= render 'shared/help/modal', header: "Message", text: Dialogue.new_message_help  %>
 </div>

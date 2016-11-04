@@ -1,0 +1,21 @@
+<div class="container">
+  <h4 class="contact-header">
+    Message to: <%= @message.contact.contactable.name %>
+    <%= render 'shared/help_button' %>
+  </h4>
+
+  <div class="row">
+    <%= form_for @message do |f| %>
+      <%= hidden_field_tag "contact_id", @message.contact_id %>
+      <div class="input-field">
+        <%= f.label :body %>
+        <%= f.text_area :body, class: "materialize-textarea" %>
+      </div>
+      <div class="input-field align-right">
+        <%= f.submit "Send", class: "btn waves-effect waves-light indigo darken-3"  %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render 'shared/help_modal', header: "Message", text: Dialogue.new_message_help  %>
+</div>

@@ -12,5 +12,6 @@ FactoryGirl.define do
     refresh_token { Faker::Crypto.md5 }
     expires_at { Faker::Time.forward(1, :morning) }
     expires true
+    language_code "en"
   end
 end

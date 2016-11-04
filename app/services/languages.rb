@@ -92,4 +92,8 @@ module Languages
      ['Yoruba', 'yo'],
      ['Zulu', 'zu']]
   end
+
+  def self.find(code)
+    all.find { |language| language[1] == code }[0] 
+  end
 end

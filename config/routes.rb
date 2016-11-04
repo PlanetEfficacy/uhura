@@ -6,5 +6,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :new, :create, :show]
 
-  resources :students, only: [:new, :create]
+  resources :students, only: [:new, :create, :show]
+
+  resources :messages, only: [:new, :create]
 end

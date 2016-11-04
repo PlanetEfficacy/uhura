@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102232818) do
+ActiveRecord::Schema.define(version: 20161103164614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "contacts", force: :cascade do |t|
-    t.boolean  "default"
+    t.boolean  "default",          default: true
     t.string   "phone_number"
     t.string   "contactable_type"
     t.integer  "contactable_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["contactable_type", "contactable_id"], name: "index_contacts_on_contactable_type_and_contactable_id", using: :btree
   end
 
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20161102232818) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "contact_id"
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_messages_on_contact_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "schools", force: :cascade do |t|
@@ -73,8 +83,9 @@ ActiveRecord::Schema.define(version: 20161102232818) do
     t.string   "refresh_token"
     t.datetime "expires_at"
     t.boolean  "expires"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "language_code", default: "en"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "school_id"
     t.index ["school_id"], name: "index_users_on_school_id", using: :btree
   end
@@ -82,6 +93,8 @@ ActiveRecord::Schema.define(version: 20161102232818) do
   add_foreign_key "enrollments", "groups"
   add_foreign_key "enrollments", "students"
   add_foreign_key "groups", "users"
+  add_foreign_key "messages", "contacts"
+  add_foreign_key "messages", "users"
   add_foreign_key "students", "schools"
   add_foreign_key "users", "schools"
 end

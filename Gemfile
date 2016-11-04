@@ -11,6 +11,8 @@ gem 'figaro'
 gem 'rails_12factor', group: :production
 gem 'omniauth-google-oauth2'
 gem 'faker'
+gem 'twilio-ruby'
+gem 'google-cloud'
 
 group :development, :test do
   gem 'byebug', platform: :mri

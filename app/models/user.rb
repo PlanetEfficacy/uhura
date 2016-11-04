@@ -21,7 +21,8 @@ class User < ApplicationRecord
       token:          auth[:credentials][:token],
       refresh_token:  auth[:credentials][:refresh_token],
       expires_at:     Time.at(auth[:credentials][:expires_at].to_i).to_datetime,
-      expires:        auth[:credentials][:expires]
+      expires:        auth[:credentials][:expires],
+      language_code:  auth[:extra][:local]
     }
     user.save!
     user

@@ -17,7 +17,13 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @group = current_group
     @students = current_group.students
+  end
+
+  def destroy
+    current_group.destroy
+    redirect_to groups_path
   end
 
   private

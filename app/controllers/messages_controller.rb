@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
     return_value = translate_message.send
     if TranslateMessage.success?(return_value)
       @message.save!
-      redirect_to student_path(@message.contact.contactable)
+      redirect_to polymorphic_path(@message.contact.contactable)
     else
       # sad path
     end
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
   private
 
     def current_contact
-      Student.find(params[:contact_id])
+      params[:contactable_type].constantize.find(params[:contact_id])
     end
 
     def message_params

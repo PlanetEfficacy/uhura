@@ -1,8 +1,5 @@
 <div class="container">
-  <h4>
-    New Group
-    <%= render 'shared/help/button' %>
-  </h4>
+  <%= render "/shared/forms/header", header: "New Group" %>
 
   <div class="row">
     <%= form_for @group do |f| %>

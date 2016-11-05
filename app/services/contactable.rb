@@ -12,7 +12,7 @@ module Contactable
   end
 
   def primary_contact
-    contacts.find_by(default: true)
+    contacts.find_by(default: true) || Contact.new
   end
-  
+
 end

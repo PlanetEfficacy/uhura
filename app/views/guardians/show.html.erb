@@ -1,0 +1,11 @@
+<div class="area-of-interest container">
+  <h4><%= @guardian.name %></h4>
+  <h5>Messages sent: <%= @guardian.messages.count %></h5>
+  <div class="row">
+    <ul class="collection col s12 m6 offset-m3">
+      <% @guardian.students.each do |student| %>
+        <%= render "shared/card", contact: student, path: student_path(student) %>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -1,8 +1,5 @@
 <div class="container">
-  <h4 class="contact-header">
-    Message to: <%= @message.contact.contactable.name %>
-    <%= render 'shared/help/button' %>
-  </h4>
+  <%= render "/shared/forms/header", header: "Message to: #{@message.contact.contactable.name}" %>
 
   <div class="row">
     <%= form_for @message do |f| %>

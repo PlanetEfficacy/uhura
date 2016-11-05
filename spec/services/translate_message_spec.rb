@@ -32,15 +32,17 @@ RSpec.describe TranslateMessage do
   end
 
   it "knows if it was successful" do
-    user = FactoryGirl.create(:user, phone_number: ENV["TWILIO_PHONE"])
-    student = FactoryGirl.create(:student, language_code: "en")
-    contact = FactoryGirl.create(:contact, phone_number: ENV["PHONE"], contactable: student)
-    message = FactoryGirl.create(:message, user: user, contact: contact)
+    VCR.use_cassette("translate_message_service_success") do      
+      user = FactoryGirl.create(:user, phone_number: ENV["TWILIO_PHONE"])
+      student = FactoryGirl.create(:student, language_code: "en")
+      contact = FactoryGirl.create(:contact, phone_number: ENV["PHONE"], contactable: student)
+      message = FactoryGirl.create(:message, user: user, contact: contact)
 
-    translate_message = TranslateMessage.new(message)
-    return_value = translate_message.send
+      translate_message = TranslateMessage.new(message)
+      return_value = translate_message.send
 
-    expect(TranslateMessage.success?(return_value)).to eq(true)
+      expect(TranslateMessage.success?(return_value)).to eq(true)
+    end
   end
 
 end

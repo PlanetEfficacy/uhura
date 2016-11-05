@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "user messages a guardian" do
   scenario "by completing the new message form" do
-    # VCR.use_cassette("messages_a_guardian_spec") do
+    VCR.use_cassette("messages_a_guardian_spec") do
       user = FactoryGirl.create(:user, phone_number: ENV["TWILIO_PHONE"])
       student = FactoryGirl.create(:student)
       guardian = FactoryGirl.create(:guardian)
@@ -29,6 +29,6 @@ RSpec.feature "user messages a guardian" do
         expect(page).to have_content(guardian.name)
         expect(page).to have_content("Messages sent: 1")
       end
-    # end
+    end
   end
 end

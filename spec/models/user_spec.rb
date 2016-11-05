@@ -34,6 +34,9 @@ RSpec.describe User, type: :model do
         refresh_token: "another_token",
         expires_at: "1477945241",
         expires: "true"
+      },
+      extra: {
+        local: "en"
       }
     }
 

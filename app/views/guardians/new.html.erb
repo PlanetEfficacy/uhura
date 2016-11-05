@@ -1,20 +1,23 @@
 <div class="container">
   <h4>
-    New Student
+    New Guardian
     <%= render 'shared/help/button' %>
   </h4>
 
   <div class="row">
-    <%= form_for @student do |f| %>
-      <%= hidden_field_tag "group_id", @group_id %>
+    <%= form_for @guardian do |f| %>
+      <%= hidden_field_tag "student_id", @student_id %>
+
       <div class="input-field">
         <%= f.label :first_name %>
         <%= f.text_field :first_name %>
       </div>
+
       <div class="input-field">
         <%= f.label :last_name %>
         <%= f.text_field :last_name %>
       </div>
+
       <div class="input-field">
         <%= label_tag :phone_number %>
         <%= telephone_field(:contact, :phone_number) %>
@@ -25,12 +28,29 @@
         <%= label_tag "Language" %>
       </div>
 
+      <div class="input-field">
+        <%= select_tag :relationship, options_for_select(RelationshipDropDown.all, selected = "Mother"), id: "relationship-select" %>
+        <%= label_tag "Relationship" %>
+      </div>
+
+
+        <div class="switch">
+          <label>
+            <h6> Primary contact? </h6> No
+            <input type="checkbox" name="primary_contact" id="primary-contact">
+            <span class="lever"></span>
+            Yes
+          </label>
+        </div>
+
+
+
       <div class="input-field align-right">
         <%= f.submit "Create", class: "btn waves-effect waves-light indigo darken-3"  %>
       </div>
     <% end %>
   </div>
 
-  <%= render 'shared/help/modal', header: "Students",
-                                  text: Dialogue.new_student_help %>
+  <%= render 'shared/help/modal', header: "Guardians",
+                                  text: Dialogue.new_guardian_help %>
 </div>

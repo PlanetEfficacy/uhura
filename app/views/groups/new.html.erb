@@ -1,7 +1,7 @@
 <div class="container">
   <h4>
     New Group
-    <%= render 'shared/help_button' %>
+    <%= render 'shared/help/button' %>
   </h4>
 
   <div class="row">
@@ -16,5 +16,5 @@
     <% end %>
   </div>
 
-  <%= render 'shared/help_modal', header: "Groups", text: Dialogue.new_group_help  %>
+  <%= render 'shared/help/modal', header: "Groups", text: Dialogue.new_group_help  %>
 </div>

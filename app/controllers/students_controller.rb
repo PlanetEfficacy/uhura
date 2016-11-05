@@ -26,13 +26,9 @@ class StudentsController < ApplicationController
   private
 
     def student_params
-      whitelist = params.require(:student).permit(:first_name, :last_name, :language_code)
+      whitelist = params.require(:student).permit(:first_name, :last_name)
       whitelist["language_code"] = params[:language_code]
       return whitelist
-    end
-
-    def contact_params
-      params.require(:contact).permit(:phone_number)
     end
 
     def current_group

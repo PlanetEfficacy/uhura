@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103164614) do
+ActiveRecord::Schema.define(version: 20161105172945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,26 @@ ActiveRecord::Schema.define(version: 20161103164614) do
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
 
+  create_table "guardians", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "language_code"
+    t.boolean  "primary",         default: true
+    t.integer  "relationship_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["relationship_id"], name: "index_guardians_on_relationship_id", using: :btree
+  end
+
+  create_table "guardianships", force: :cascade do |t|
+    t.integer  "student_id"
+    t.integer  "guardian_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["guardian_id"], name: "index_guardianships_on_guardian_id", using: :btree
+    t.index ["student_id"], name: "index_guardianships_on_student_id", using: :btree
+  end
+
   create_table "messages", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "contact_id"
@@ -50,6 +70,12 @@ ActiveRecord::Schema.define(version: 20161103164614) do
     t.datetime "updated_at", null: false
     t.index ["contact_id"], name: "index_messages_on_contact_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.string   "relationship"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "schools", force: :cascade do |t|
@@ -93,6 +119,9 @@ ActiveRecord::Schema.define(version: 20161103164614) do
   add_foreign_key "enrollments", "groups"
   add_foreign_key "enrollments", "students"
   add_foreign_key "groups", "users"
+  add_foreign_key "guardians", "relationships"
+  add_foreign_key "guardianships", "guardians"
+  add_foreign_key "guardianships", "students"
   add_foreign_key "messages", "contacts"
   add_foreign_key "messages", "users"
   add_foreign_key "students", "schools"

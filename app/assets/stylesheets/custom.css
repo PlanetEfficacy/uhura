@@ -41,3 +41,9 @@ img.logo-footer{
 .small-space {
   height: 40px
 }
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #ffd740 !important;
+}
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #ffe57f !important;
+}

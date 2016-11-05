@@ -1,0 +1,9 @@
+<li class="collection-item valign-wrapper">
+  <div class="center-align">
+    <%= render "shared/buttons/lg_indigo", icon: "textsms", path: new_message_path(contact_id: contact.id) %>
+  </div>
+  <div class="col offset-m1">
+    <%= render "shared/card/header", text: contact.name, path: path %>
+    <%= render "shared/card/body", phone: contact.phone_number, language: contact.language %>
+  </div>
+</li>

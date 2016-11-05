@@ -1,4 +1,19 @@
 <div class="area-of-interest container">
   <h4><%= @student.name %></h4>
   <h5>Messages sent: <%= @student.messages.count %></h5>
+  <div class="row">
+    <ul class="collection col s12 m6 offset-m3">
+      <% @student.guardians.each do |guardian| %>
+        <%= render "shared/card", contact: guardian, path: guardian_path(guardian) %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="fixed-action-btn">
+  <%=
+    render "/shared/buttons/lg_amber",
+    icon: "add",
+    path: new_guardian_path(student_id: @student.id)
+  %>
 </div>

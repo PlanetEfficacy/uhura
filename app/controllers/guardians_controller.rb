@@ -17,6 +17,10 @@ class GuardiansController < ApplicationController
     end
   end
 
+  def show
+    @guardian = current_guardian
+  end
+
   private
 
   def guardian_params
@@ -32,5 +36,9 @@ class GuardiansController < ApplicationController
 
   def current_student
     Student.find(params[:student_id])
+  end
+
+  def current_guardian
+    Guardian.find(params[:id])
   end
 end

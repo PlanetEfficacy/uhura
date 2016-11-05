@@ -4,20 +4,11 @@ class Student < ApplicationRecord
   has_many :users, through: :groups
   has_many :contacts, as: :contactable, dependent: :destroy
   has_many :messages, through: :contacts
+  has_many :guardianships
+  has_many :guardians, through: :guardianships
 
   alias_attribute :teachers, :users
 
-  include FullName
+  include Contactable
   
-  def phone_number
-    primary_contact.phone_number
-  end
-
-  def language
-    Languages.find(language_code)
-  end
-
-  def primary_contact
-    contacts.find_by(default: true)
-  end
 end

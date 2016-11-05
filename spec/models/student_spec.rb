@@ -6,6 +6,8 @@ RSpec.describe Student, type: :model do
    it { should have_many(:users) }
    it { should have_many(:contacts) }
    it { should have_many(:messages) }
+   it { should have_many(:guardianships) }
+   it { should have_many(:guardians) }
 
    it "has many users as teachers" do
      student = FactoryGirl.create(:student)

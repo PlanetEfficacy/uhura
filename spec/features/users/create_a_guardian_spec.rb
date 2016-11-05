@@ -16,10 +16,9 @@ RSpec.feature "user creates a student" do
 
     fill_in "First name", with: guardian[:first_name]
     fill_in "Last name", with: guardian[:last_name]
-    fill_in "contact_phone_number", guardian: "555-555-5555"
+    fill_in "contact_phone_number", with: "555-555-5555"
     find(:css, "#language-select").set("English")
-    find(:css, "#language-select").set("Other")
-    fill_in "relationship", with: "Mother"
+    find(:css, "#relationship-select").set("Mother")
     find(:css, "#primary-contact").set(true)
     click_on "Create"
 

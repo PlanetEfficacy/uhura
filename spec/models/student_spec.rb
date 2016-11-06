@@ -8,6 +8,7 @@ RSpec.describe Student, type: :model do
    it { should have_many(:messages) }
    it { should have_many(:guardianships) }
    it { should have_many(:guardians) }
+   it { should define_enum_for(:status).with([:inactive, :active]) }
 
    it "has many users as teachers" do
      student = FactoryGirl.create(:student)

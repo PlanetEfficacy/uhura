@@ -1,7 +1,9 @@
 <div class="container row">
   <ul class="collection col s12 m6 offset-m3">
-    <% @students.each do |student| %>
-      <%= render "shared/card", contact: student, path: student_path(student) %>
+    <% @group.students.active.each do |student| %>
+      <%= render "shared/card",
+          contact: student,
+          path: student_path(student, group_id: @group.id) %>
     <% end %>
   </ul>
 </div>

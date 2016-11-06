@@ -3,10 +3,10 @@
   <h5>Messages sent: <%= @student.messages.count %></h5>
   <div class="row">
     <ul class="collection col s12 m6 offset-m3">
-      <% @student.guardians.each do |guardian| %>
+      <% @student.guardians.active.each do |guardian| %>
         <%= render "shared/card",
             contact: guardian,
-            path: guardian_path(guardian) %>
+            path: guardian_path(guardian, student_id: @student.id) %>
       <% end %>
     </ul>
   </div>
@@ -15,7 +15,8 @@
 
 <%= render "/shared/buttons/lg_amber",
     icon: "add",
-    path: new_guardian_path(student_id: @student.id),
-    delete_path: student_path(@student) %>
+    path: new_guardian_path(student_id: @student.id) %>
 
-<%= render "shared/delete_modal", model: @student, path: student_path(@student) %>
+<%= render "shared/delete_modal",
+    model: @student,
+    path: student_path(@student, group_id: @group_id) %>

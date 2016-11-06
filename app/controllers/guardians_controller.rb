@@ -19,6 +19,12 @@ class GuardiansController < ApplicationController
 
   def show
     @guardian = current_guardian
+    @student_id = params[:student_id]
+  end
+
+  def destroy
+    current_guardian.update(status: :inactive)
+    redirect_to student_path(current_student)
   end
 
   private

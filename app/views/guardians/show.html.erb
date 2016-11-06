@@ -1,6 +1,7 @@
 <div class="area-of-interest container">
-  <h4><%= @guardian.name %></h4>
-  <h5>Messages sent: <%= @guardian.messages.count %></h5>
+
+  <%= render "shared/card", contact: @guardian %>
+
   <div class="row">
     <ul class="collection col s12 m6 offset-m3">
       <% @guardian.students.each do |student| %>
@@ -14,8 +15,22 @@
 </div>
 
 
-<%= render "shared/buttons/delete" %>
+<div class="fixed-action-btn">
+  <%= link_to (render "shared/icon", icon: "create"),
+      edit_guardian_path(@guardian),
+      class: "btn-floating btn-large waves-effect waves-light amber accent-2" %>
+  <ul>
+    <%= render "shared/buttons/sm",
+        icon: "delete",
+        path: "#delete-modal",
+        id: "delete" %>
+  </ul>
+</div>
 
 <%= render "shared/delete_modal",
     model: @guardian,
     path: guardian_path(@guardian, student_id: @student_id) %>
+
+<%= render "shared/help/modal",
+    header: "Primary Contact",
+    text: Dialogue.primary_contact_help %>

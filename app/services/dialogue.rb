@@ -46,4 +46,15 @@ module Dialogue
     "to a student, choose a guardian from the list and click" + \
     "\"send\"."
   end
+
+  def self.edit_guardian_help
+    "To change the attributes of a group, use the form below" + \
+    "and click \"update\"."
+  end
+
+  def self.primary_contact_help
+    "This guardian is a student's primary contact. A primary" + \
+    "contact is the default number Uhura will send messages " + \
+    "to when messaging a student's guardian."
+  end
 end

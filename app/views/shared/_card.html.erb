@@ -1,18 +1,31 @@
 <div class="card">
   <div class="card-content">
-    <h4><%= student.name %></h4>
+    <h4>
+      <%= contact.name %>
+      <% if contact.class == Guardian && contact.primary %>
+        <a href="#modal1" class="waves-effect waves-light amber-text text-accent-2", id="primary-contact">
+          <%= render "shared/icon", icon: "star" %>
+        </a>
+      <% end %>
+    </h4>
     <table>
       <tr>
         <th>Phone:</th>
-        <td><%= student.phone_number %></td>
+        <td><%= contact.phone_number %></td>
       </tr>
       <tr>
         <th>Language:</th>
-        <td><%= student.language %></td>
+        <td><%= contact.language %></td>
       </tr>
+      <% if contact.class == Guardian %>
+        <tr>
+          <th>Relationship:</th>
+          <td><%= contact.relationship.relationship %></td>
+        </tr>
+      <% end %>
       <tr>
         <th>Total messages:</th>
-        <td><%= student.messages.count %></td>
+        <td><%= contact.messages.count %></td>
       </tr>
     </table>
   </div>

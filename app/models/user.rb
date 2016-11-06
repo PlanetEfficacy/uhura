@@ -27,4 +27,8 @@ class User < ApplicationRecord
     user.save!
     user
   end
+
+  def group(student)
+    groups.joins("join enrollments on enrollments.student_id = #{student.id}").first
+  end
 end

@@ -23,6 +23,12 @@ class StudentsController < ApplicationController
     @student = current_student
   end
 
+  def destroy
+    group = current_user.group(current_student)
+    current_student.destroy
+    redirect_to group_path(group)
+  end
+
   private
 
     def student_params

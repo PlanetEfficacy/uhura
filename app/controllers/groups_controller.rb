@@ -25,6 +25,15 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def edit
+    @group = current_group
+  end
+
+  def update
+    current_group.update(group_params)
+    redirect_to groups_path
+  end
+
   private
 
   def group_params

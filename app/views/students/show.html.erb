@@ -14,8 +14,9 @@
 
 
 <%= render "/shared/buttons/lg_amber",
-    icon: "add",
-    path: new_guardian_path(student_id: @student.id) %>
+    path: new_guardian_path(student_id: @student.id),
+    delete_path: student_path(@student),
+    edit_path: edit_student_path(@student) %>
 
 <%= render "shared/delete_modal",
     model: @student,

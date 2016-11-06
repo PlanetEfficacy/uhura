@@ -14,6 +14,12 @@ module Dialogue
     "eate\"."
   end
 
+  def self.edit_group_help
+    "To change the name of a group, use the form below an cl" + \
+    "ick \"update\". To change the composition of a group, a" + \
+    "dd or delete students from the group page."
+  end
+
   def self.new_message_help
     "Messages are sent via sms to students, guardians, and o" + \
     "r groups. They are automatically translated into your t" + \

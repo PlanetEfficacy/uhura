@@ -9,8 +9,8 @@
 </div>
 
 <%= render "/shared/buttons/lg_amber",
-    icon: "add",
     path: new_student_path(group_id: @group.id),
-    delete_path: group_path(@group) %>
+    delete_path: group_path(@group),
+    edit_path: edit_group_path(@group) %>
 
 <%= render "shared/delete_modal", model: @group, path: group_path(@group) %>

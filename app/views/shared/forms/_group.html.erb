@@ -1,0 +1,17 @@
+<div class="container">
+  <%= render "/shared/forms/header", header: header_text %>
+
+  <div class="row">
+    <%= form_for @group do |f| %>
+      <div class="input-field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="input-field align-right">
+        <%= f.submit submit_text, class: "btn waves-effect waves-light indigo darken-3"  %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render 'shared/help/modal', header: "Groups", text: modal_text  %>
+</div>

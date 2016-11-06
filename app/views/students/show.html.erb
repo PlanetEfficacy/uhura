@@ -1,12 +1,14 @@
 <div class="area-of-interest container">
-  <h4><%= @student.name %></h4>
-  <h5>Messages sent: <%= @student.messages.count %></h5>
+
+  <%= render "shared/card", student: @student %>
+
   <div class="row">
     <ul class="collection col s12 m6 offset-m3">
       <% @student.guardians.active.each do |guardian| %>
-        <%= render "shared/card",
+        <%= render "shared/collection",
             contact: guardian,
-            path: guardian_path(guardian, student_id: @student.id) %>
+            path: guardian_path(guardian, student_id: @student.id),
+            relationship: guardian.relationship.relationship %>
       <% end %>
     </ul>
   </div>

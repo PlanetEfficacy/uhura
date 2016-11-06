@@ -1,17 +1,4 @@
-<div class="container">
-  <%= render "/shared/forms/header", header: "New Group" %>
-
-  <div class="row">
-    <%= form_for @group do |f| %>
-      <div class="input-field">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-      <div class="input-field align-right">
-        <%= f.submit "Create", class: "btn waves-effect waves-light indigo darken-3"  %>
-      </div>
-    <% end %>
-  </div>
-
-  <%= render 'shared/help/modal', header: "Groups", text: Dialogue.new_group_help  %>
-</div>
+<%= render "/shared/forms/group",
+    header_text: "New Group",
+    submit_text: "Create",
+    modal_text: Dialogue.new_group_help %>

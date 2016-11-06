@@ -6,6 +6,13 @@ module Dialogue
     "nd click \"create\"."
   end
 
+  def self.edit_student_help
+    "To change the attributes of a student, use the form bel" + \
+    "ow an click \"update\". To change the student's guardia" + \
+    "ns or delete guardians from a student, use the controls" + \
+    "on the student page."
+  end
+
   def self.new_group_help
     "Groups of students are any set of students you want to " + \
     "message at one time. Teachers can have many groups and " + \

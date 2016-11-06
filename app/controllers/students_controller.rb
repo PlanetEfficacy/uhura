@@ -29,6 +29,17 @@ class StudentsController < ApplicationController
     redirect_to group_path(current_group)
   end
 
+  def edit
+    @student = current_student
+  end
+
+  def update
+    Contactable.update(contactable: current_student,
+                       contactable_params: student_params,
+                       phone_number: contact_params[:phone_number])
+    redirect_to current_student
+  end
+
   private
 
     def student_params

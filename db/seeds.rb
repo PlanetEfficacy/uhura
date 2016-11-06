@@ -1,9 +1,10 @@
 class Seed
   def self.start
     seed = Seed.new
-    seed.generate_relationships
-    seed.generate_groups
-    seed.generate_students_and_guardians
+    # seed.generate_relationships
+    # seed.generate_groups
+    # seed.generate_students_and_guardians
+    # seed.generate_contacts
   end
 
 
@@ -38,6 +39,18 @@ class Seed
         FactoryGirl.create(:enrollment, student: student, group: group)
         puts "Student #{student.name} and guardians: #{guardian_1.name} and #{guardian_2.name} added to Group: #{group.name}"
       end
+    end
+  end
+
+  def generate_contacts
+    puts "Create contacts for students...."
+    Student.all.each do |student|
+      contact = FactoryGirl.create(:contact, contactable: student)
+    end
+
+    puts "Create contacts for parents...."
+    Guardian.all.each do |guardian|
+      contact = FactoryGirl.create(:contact, contactable: guardian)
     end
   end
 end

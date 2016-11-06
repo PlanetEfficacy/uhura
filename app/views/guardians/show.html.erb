@@ -4,7 +4,10 @@
   <div class="row">
     <ul class="collection col s12 m6 offset-m3">
       <% @guardian.students.each do |student| %>
-        <%= render "shared/card", contact: student, path: student_path(student) %>
+        <%= render "shared/collection",
+            contact: student,
+            path: student_path(student),
+            relationship: "Student" %>
       <% end %>
     </ul>
   </div>

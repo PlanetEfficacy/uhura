@@ -58,4 +58,13 @@ RSpec.describe User, type: :model do
     expect(new_user.expires).to eq(true)
   end
 
+  it "can find the first group based on student" do
+    user = FactoryGirl.create(:user)
+    group = FactoryGirl.create(:group, user: user)
+    student = FactoryGirl.create(:student)
+    enrollment = FactoryGirl.create(:enrollment, student: student, group: group)
+
+    expect(user.group(student)).to eq(group)
+  end
+
 end

@@ -11,7 +11,7 @@ RSpec.feature "user messages a guardian" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit student_path(student)
-      find(".btn-floating.indigo").click
+      find(".btn-floating.btn-large.waves-effect.waves-light.indigo.darken-3").click
 
       expect(current_path).to eq(new_message_path)
 

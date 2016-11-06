@@ -14,7 +14,7 @@ RSpec.feature "user deletes a guardian" do
     visit guardian_path(guardian, student_id: student.id)
     expect(page).to have_css("li.collection-item", count: 1)
 
-    find(".delete").click
+    find("#delete").click
     find("#confirm-delete").click
 
     expect(current_path).to eq(student_path(student))

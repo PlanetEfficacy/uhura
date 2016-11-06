@@ -27,7 +27,9 @@ RSpec.feature "user messages a guardian" do
 
       within ".area-of-interest" do
         expect(page).to have_content(guardian.name)
-        expect(page).to have_content("Messages sent: 1")
+        expect(page).to have_content(guardian.language)
+        expect(page).to have_content(guardian.phone_number)
+        expect(page).to have_content("Total messages: 1")
       end
     end
   end

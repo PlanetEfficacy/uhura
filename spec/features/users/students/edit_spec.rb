@@ -6,7 +6,7 @@ RSpec.feature "user edits a student" do
     student = FactoryGirl.create(:student)
     contact = FactoryGirl.create(:contact, contactable: student)
     group = FactoryGirl.create(:group, user: user)
-    group = FactoryGirl.create(:enrollment, group: group, student: student)
+    FactoryGirl.create(:enrollment, group: group, student: student)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit student_path(student)

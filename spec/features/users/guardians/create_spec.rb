@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "user creates a student" do
-  scenario "by completing the new student form" do
+RSpec.feature "user creates a guardian" do
+  scenario "by completing the new guardian form" do
     user = FactoryGirl.create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     group = FactoryGirl.create(:group, user: user)
@@ -31,5 +31,9 @@ RSpec.feature "user creates a student" do
       expect(page).to have_content("Father")
       expect(page).to have_content("textsms")
     end
+
+    click_link "#{guardian[:first_name]} #{guardian[:last_name]}"
+    find("#primary-contact").click
+    expect(page).to have_css(".modal")
   end
 end

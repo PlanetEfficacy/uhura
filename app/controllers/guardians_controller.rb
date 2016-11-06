@@ -27,11 +27,23 @@ class GuardiansController < ApplicationController
     redirect_to student_path(current_student)
   end
 
+  def edit
+    @guardian = current_guardian
+  end
+
+  def update
+    Contactable.update(contactable: current_guardian,
+                       contactable_params: guardian_params,
+                       phone_number: contact_params[:phone_number])
+    redirect_to current_guardian
+  end
+
   private
 
   def guardian_params
     whitelist = params.require(:guardian).permit(:first_name, :last_name)
     whitelist["language_code"] = params[:language_code]
+    whitelist["relationship_id"] = Relationship.find_or_create_by(relationship: params[:relationship]).id
     whitelist["primary"] = primary?
     return whitelist
   end

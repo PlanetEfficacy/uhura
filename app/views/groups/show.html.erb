@@ -1,9 +1,10 @@
 <div class="container row">
   <ul class="collection col s12 m6 offset-m3">
     <% @group.students.active.each do |student| %>
-      <%= render "shared/card",
+      <%= render "shared/collection",
           contact: student,
-          path: student_path(student, group_id: @group.id) %>
+          path: student_path(student, group_id: @group.id),
+          relationship: "Student" %>
     <% end %>
   </ul>
 </div>
@@ -13,4 +14,6 @@
     delete_path: group_path(@group),
     edit_path: edit_group_path(@group) %>
 
-<%= render "shared/delete_modal", model: @group, path: group_path(@group) %>
+<%= render "shared/delete_modal",
+    model: @group,
+    path: group_path(@group) %>

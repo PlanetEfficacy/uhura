@@ -1,12 +1,19 @@
-<li class="collection-item valign-wrapper">
-  <div class="center-align">
-    <%= render "shared/buttons/lg_indigo",
-        icon: "textsms",
-        path: new_message_path( contact_id: contact.id,
-                                contactable_type: contact.class.to_s) %>
+<div class="card">
+  <div class="card-content">
+    <h4><%= student.name %></h4>
+    <table>
+      <tr>
+        <th>Phone:</th>
+        <td><%= student.phone_number %></td>
+      </tr>
+      <tr>
+        <th>Language:</th>
+        <td><%= student.language %></td>
+      </tr>
+      <tr>
+        <th>Total messages:</th>
+        <td><%= student.messages.count %></td>
+      </tr>
+    </table>
   </div>
-  <div class="col offset-m1">
-    <%= render "shared/card/header", text: contact.name, path: path %>
-    <%= render "shared/card/body", phone: contact.phone_number, language: contact.language %>
-  </div>
-</li>
+</div>

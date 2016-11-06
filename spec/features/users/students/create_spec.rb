@@ -14,7 +14,7 @@ RSpec.feature "user creates a student" do
     fill_in "First name", with: student[:first_name]
     fill_in "Last name", with: student[:last_name]
     fill_in "contact_phone_number", with: "555-555-5555"
-    find(:css, "#language-select").set("English")
+    find("option[value='es']").select_option
 
     click_on "Create"
 
@@ -24,7 +24,7 @@ RSpec.feature "user creates a student" do
       expect(page).to have_content(student[:first_name])
       expect(page).to have_content(student[:last_name])
       expect(page).to have_content("555-555-5555")
-      expect(page).to have_content("English")
+      expect(page).to have_content("Spanish")
       expect(page).to have_content("textsms")
     end
   end

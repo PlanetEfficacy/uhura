@@ -6,6 +6,7 @@ class CreateGuardians < ActiveRecord::Migration[5.0]
       t.string :language_code
       t.boolean :primary, default: true
       t.references :relationship, foreign_key: true
+      t.integer :status, default: 1
 
       t.timestamps
     end

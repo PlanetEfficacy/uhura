@@ -9,3 +9,10 @@
     </ul>
   </div>
 </div>
+
+
+<%= render "shared/buttons/delete" %>
+
+<%= render "shared/delete_modal",
+    model: @guardian,
+    path: guardian_path(@guardian, student_id: @student_id) %>

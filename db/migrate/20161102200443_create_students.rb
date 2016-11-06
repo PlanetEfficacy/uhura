@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration[5.0]
       t.string :first_name
       t.string :last_name
       t.string :language_code
+      t.integer :status, default: 1
 
       t.timestamps
     end

@@ -21,12 +21,12 @@ class StudentsController < ApplicationController
 
   def show
     @student = current_student
+    @group_id = params[:group_id]
   end
 
   def destroy
-    group = current_user.group(current_student)
-    current_student.destroy
-    redirect_to group_path(group)
+    current_student.update(status: :inactive)
+    redirect_to group_path(current_group)
   end
 
   private

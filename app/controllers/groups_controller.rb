@@ -18,7 +18,6 @@ class GroupsController < ApplicationController
 
   def show
     @group = current_group
-    @students = current_group.students
   end
 
   def destroy

@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(version: 20161105172945) do
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
 
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20161105172945) do
     t.string   "language_code"
     t.boolean  "primary",         default: true
     t.integer  "relationship_id"
+    t.integer  "status",          default: 1
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.index ["relationship_id"], name: "index_guardians_on_relationship_id", using: :btree
@@ -88,8 +90,9 @@ ActiveRecord::Schema.define(version: 20161105172945) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "language_code"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "status",        default: 1
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "school_id"
     t.index ["school_id"], name: "index_students_on_school_id", using: :btree
   end
@@ -110,6 +113,7 @@ ActiveRecord::Schema.define(version: 20161105172945) do
     t.datetime "expires_at"
     t.boolean  "expires"
     t.string   "language_code", default: "en"
+    t.integer  "status",        default: 1
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.integer  "school_id"

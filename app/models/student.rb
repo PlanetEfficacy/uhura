@@ -9,6 +9,10 @@ class Student < ApplicationRecord
 
   alias_attribute :teachers, :users
 
+  enum status: [:inactive, :active]
+
+  scope :active, -> { where(status: :active) }
+
   include Contactable
 
 end

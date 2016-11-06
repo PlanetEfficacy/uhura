@@ -1,5 +1,5 @@
 <div class="fixed-action-btn">
-  <%= link_to (render "shared/icon", icon: icon),
+  <%= link_to (render "shared/icon", icon: "add"),
       path,
       class: "btn-floating btn-large waves-effect waves-light amber accent-2" %>
   <ul>
@@ -7,5 +7,10 @@
         icon: "delete",
         path: "#delete-modal",
         id: "delete" %>
+
+    <%= render "shared/buttons/sm",
+        icon: "create",
+        path: edit_path,
+        id: "edit-group" %>
   </ul>
 </div>

@@ -1,0 +1,126 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+.dropdown-content {
+  background-color: #FFFFFF;
+  margin: 0;
+  display: none;
+  min-width: 300px; /* Changed this to accomodate content width */
+  max-height: auto;
+	margin-left: -1px; /* Add this to keep dropdown in line with edge of navbar */
+  overflow: hidden; /* Changed this from overflow-y:auto; to overflow:hidden; */
+  opacity: 0;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 1;
+  will-change: width, height;
+}
+
+img.logo{
+    width:150px;
+    height: auto;
+}
+
+img.logo-footer{
+    width:80px;
+    height: auto;
+}
+
+.top-nav {
+  height: 80px
+}
+
+.small-space {
+  height: 40px
+}
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #ffd740 !important;
+}
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #ffecb3 !important;
+}
+/* line 1, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* line 7, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+main {
+  flex: 1 0 auto;
+}
+
+/* line 12, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+.dropdown-content {
+  background-color: #FFFFFF;
+  margin: 0;
+  display: none;
+  min-width: 300px;
+  /* Changed this to accomodate content width */
+  max-height: auto;
+  margin-left: -1px;
+  /* Add this to keep dropdown in line with edge of navbar */
+  overflow: hidden;
+  /* Changed this from overflow-y:auto; to overflow:hidden; */
+  opacity: 0;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 1;
+  will-change: width, height;
+}
+
+/* line 27, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+img.logo {
+  width: 150px;
+  height: auto;
+}
+
+/* line 32, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+img.logo-footer {
+  width: 80px;
+  height: auto;
+}
+
+/* line 37, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+.top-nav {
+  height: 80px;
+}
+
+/* line 41, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+.small-space {
+  height: 40px;
+}
+
+/* line 44, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+.switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #ffd740 !important;
+}
+
+/* line 47, /Users/JesseSpevack/turing/3module/uhura/app/assets/stylesheets/custom.css */
+.switch label input[type=checkbox]:checked + .lever {
+  background-color: #ffecb3 !important;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */

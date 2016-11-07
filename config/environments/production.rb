@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.serve_static_assets = true # added on 11/6 after running rake assets:precompile based on http://stackoverflow.com/questions/16074170/rails-stylesheets-on-heroku
   # Code is not reloaded between requests.
   config.cache_classes = true
 

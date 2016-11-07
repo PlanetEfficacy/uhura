@@ -4,35 +4,22 @@
   <div class="section indigo lighten-2">
     <div class="row container">
 
-      <p class="white-text flow-text">
-        Uhura is making it easier than ever for educators, students, and families to communicate across language barriers about the things that matter most.
-      </p>
+      <p class="white-text flow-text"><%= Dialogue.landing_page_text %></p>
 
       <%= render "shared/parallax/content_block",
           icon: "school",
-          header_content: Dialogue.landing_page_center_content_block_header,
+          header_content: Dialogue.landing_page_left_content_block_header,
           body_content: Dialogue.landing_page_left_content_block_text %>
 
+      <%= render "shared/parallax/content_block",
+          icon: "textsms",
+          header_content: Dialogue.landing_page_center_content_block_header,
+          body_content: Dialogue.landing_page_center_content_block_text %>
 
-
-      <div class="col m4 center-align">
-        <%= content_tag(:i, "textsms", class: "material-icons large white-text") %>
-        <h5 class="white-text">Communicate Instantly</h5>
-        <div class="container">
-          <p class="white-text left-align">
-            <%= Dialogue.landing_page_center_content_block_text %>
-          </p>
-        </div>
-      </div>
-      <div class="col m4 center-align">
-        <%= content_tag(:i, "translate", class: "material-icons large white-text") %>
-        <h5 class="white-text">Every Student</h5>
-        <div class="container">
-          <p class="white-text left-align">
-            The number of non-English speaking students and families is growing. Uhura uses advanced translation technology so communication can reach every student.
-          </p>
-        </div>
-      </div>
+      <%= render "shared/parallax/content_block",
+          icon: "translate",
+          header_content: Dialogue.landing_page_right_content_block_header,
+          body_content: Dialogue.landing_page_right_content_block_text %>
 
     </div>
   </div>

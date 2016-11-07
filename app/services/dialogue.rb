@@ -78,4 +78,19 @@ module Dialogue
     "t, family, class, and even groups of families."
   end
 
+  def self.landing_page_right_content_block_header
+    "Every Student"
+  end
+
+  def self.landing_page_right_content_block_text
+    "The number of non-English speaking students and familie" + \
+    "s is growing. Uhura uses advanced translation technolog" + \
+    "y so communication can reach every student."
+  end
+
+  def self.landing_page_text
+    "Uhura is making it easier than ever for educators, stud" + \
+    "ents, and families to communicate across language barri" + \
+    "ers about the things that matter most."
+  end
 end

@@ -57,4 +57,25 @@ module Dialogue
     "contact is the default number Uhura will send messages " + \
     "to when messaging a student's guardian."
   end
+
+  def self.landing_page_left_content_block_header
+    "Drive Achievement"
+  end
+
+  def self.landing_page_left_content_block_text
+    "Communication between families and school is a key part" + \
+    " of student success. Uhura is built by educators and ta" + \
+    "kes into account the things that matter most."
+  end
+
+  def self.landing_page_center_content_block_header
+    "Communicate Instantly"
+  end
+
+  def self.landing_page_center_content_block_text
+    "SMS remains the most reliable means of communication fo" + \
+    "r many families. Uhura makes it easy to text one studen" + \
+    "t, family, class, and even groups of families."
+  end
+
 end

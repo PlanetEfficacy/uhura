@@ -1,5 +1,5 @@
 <div class="parallax-container">
-    <div class="parallax"><%= image_tag "class1.png" %></div>
+  <div class="parallax"><%= image_tag "class1.png" %></div>
   </div>
   <div class="section indigo lighten-2">
     <div class="row container">
@@ -8,21 +8,19 @@
         Uhura is making it easier than ever for educators, students, and families to communicate across language barriers about the things that matter most.
       </p>
 
-      <div class="col m4 center-align">
-        <%= content_tag(:i, "school", class: "material-icons large white-text") %>
-        <h5 class="white-text">Drive Achievement</h5>
-        <div class="container">
-          <p class="white-text left-align">
-            Communication between families and school is a key part of student success. Uhura is built by educators and takes into account the things that matter most.
-          </p>
-        </div>
-      </div>
+      <%= render "shared/parallax/content_block",
+          icon: "school",
+          header_content: Dialogue.landing_page_center_content_block_header,
+          body_content: Dialogue.landing_page_left_content_block_text %>
+
+
+
       <div class="col m4 center-align">
         <%= content_tag(:i, "textsms", class: "material-icons large white-text") %>
         <h5 class="white-text">Communicate Instantly</h5>
         <div class="container">
           <p class="white-text left-align">
-            For many families, sms remains the most reliable means of getting in touch. Uhura makes it easy to text one student, family, class, and even groups of families.
+            <%= Dialogue.landing_page_center_content_block_text %>
           </p>
         </div>
       </div>

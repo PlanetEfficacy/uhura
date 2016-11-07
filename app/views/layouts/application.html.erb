@@ -3,22 +3,21 @@
   <head>
     <title>Uhura</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <%= stylesheet_link_tag "http://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= render 'shared/page/header' %>
+    <%= render "shared/page/header" %>
     <% if current_user %>
-      <div class="small-space"></div>
+      <%= redner "shared/small_space" %>
     <% end %>
     <main>
       <%= yield %>
     </main>
-    <%= render 'shared/page/footer' %>
+    <%= render "shared/page/footer" %>
   </body>
 
 </html>

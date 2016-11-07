@@ -1,28 +1,26 @@
-<div class="parallax-container">
-  <div class="parallax"><%= image_tag "class1.png" %></div>
+<%= render "shared/parallax/background_img", image_path: "assets/class1.png" %>
+
+<div class="section indigo lighten-2">
+  <div class="row container">
+
+    <p class="white-text flow-text"><%= Dialogue.landing_page_text %></p>
+
+    <%= render "shared/parallax/content_block",
+        icon: "school",
+        header_content: Dialogue.landing_page_left_content_block_header,
+        body_content: Dialogue.landing_page_left_content_block_text %>
+
+    <%= render "shared/parallax/content_block",
+        icon: "textsms",
+        header_content: Dialogue.landing_page_center_content_block_header,
+        body_content: Dialogue.landing_page_center_content_block_text %>
+
+    <%= render "shared/parallax/content_block",
+        icon: "translate",
+        header_content: Dialogue.landing_page_right_content_block_header,
+        body_content: Dialogue.landing_page_right_content_block_text %>
+
   </div>
-  <div class="section indigo lighten-2">
-    <div class="row container">
+</div>
 
-      <p class="white-text flow-text"><%= Dialogue.landing_page_text %></p>
-
-      <%= render "shared/parallax/content_block",
-          icon: "school",
-          header_content: Dialogue.landing_page_left_content_block_header,
-          body_content: Dialogue.landing_page_left_content_block_text %>
-
-      <%= render "shared/parallax/content_block",
-          icon: "textsms",
-          header_content: Dialogue.landing_page_center_content_block_header,
-          body_content: Dialogue.landing_page_center_content_block_text %>
-
-      <%= render "shared/parallax/content_block",
-          icon: "translate",
-          header_content: Dialogue.landing_page_right_content_block_header,
-          body_content: Dialogue.landing_page_right_content_block_text %>
-
-    </div>
-  </div>
-  <div class="parallax-container">
-    <div class="parallax"><%= image_tag "class2.png" %></div>
-  </div>
+<%= render "shared/parallax/background_img", image_path: "assets/class2.png" %>

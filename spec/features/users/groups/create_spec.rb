@@ -4,7 +4,7 @@ RSpec.feature "user creates a group" do
   scenario "by completing the new group form" do
     user = FactoryGirl.create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
+    
     visit root_path
 
     find("#new-group").click

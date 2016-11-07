@@ -12,7 +12,8 @@ class TranslateMessage
     @contact_language = message.contact.contactable.language_code
     @message = set_message
     @contact = message.contact.phone_number
-    @user = message.user.phone_number
+    @user = ENV["TWILIO_PHONE"]
+    # @user = message.user.phone_number
   end
 
   def send

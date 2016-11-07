@@ -1,5 +1,5 @@
-<div class="container row">
   <% if current_user %>
+  <div class="container row">
     <% @groups.each do |group| %>
 
         <div class="col s12 m6 l4">
@@ -15,7 +15,9 @@
         </div>
 
     <% end %>
+  </div>
+  <% else %>
+    <%= render "shared/paralax" %>
   <% end %>
-</div>
 
 <%= render 'shared/main_button' %>

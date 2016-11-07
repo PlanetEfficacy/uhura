@@ -12,7 +12,9 @@
 
   <body>
     <%= render 'shared/page/header' %>
-    <div class="small-space"></div>
+    <% if current_user %>
+      <div class="small-space"></div>
+    <% end %>
     <main>
       <%= yield %>
     </main>

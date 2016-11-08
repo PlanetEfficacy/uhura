@@ -14,10 +14,14 @@ class BulkMessage
     group.students.map { |student| message(student) }
   end
 
+  def message_guardians
+    group.students.map { |student| message(student.primary_guardian) }
+  end
+
   private
 
-    def message(student)
-      message = create_message(student)
+    def message(contactable)
+      message = create_message(contactable)
       save_and_return(message)
     end
 

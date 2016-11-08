@@ -40,4 +40,13 @@ RSpec.describe Student, type: :model do
 
       expect(student.name).to eq("#{student.first_name} #{student.last_name}")
    end
+
+   it "has a primary guardian" do
+     student = FactoryGirl.create(:student)
+     guardian = FactoryGirl.create(:guardian, primary: true)
+     FactoryGirl.create(:guardianship, student: student, guardian: guardian)
+
+     expect(student.primary_guardian).to eq(guardian)
+   end
+
 end

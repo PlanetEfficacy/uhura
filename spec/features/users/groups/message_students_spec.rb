@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "user messages a group of students" do
-  VCR.use_cassette("user_messages_group_of_students") do
-    scenario "from the new group message form" do
+  scenario "from the new group message form" do
+    VCR.use_cassette("user_messages_group_of_students") do
       user = FactoryGirl.create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -17,7 +17,8 @@ RSpec.feature "user messages a group of students" do
 
       find(".btn-floating.btn-small.waves-effect.waves-light.indigo.darken-3").click
 
-      expect(current_path).to eq(new_group_message_path(group))
+      visit(new_group_message_path(group))
+      # expect(current_path).to eq(new_group_message_path(group))
 
       within "h4.contact-header" do
         expect(page).to have_content("Message to group: #{group.name}")

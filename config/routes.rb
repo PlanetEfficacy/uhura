@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   get   '/groups/:id/messages/new', to: 'group_messages#new',    as: 'new_group_message'
   post  '/groups/:id/messages',     to: 'group_messages#create', as: 'group_message'
 
-  # resources :group do
-  #   resources :messages, only: [:new, :create]
-  # end
+  get   '/groups/:id/guardians/messages/new', to: 'group_guardians_messages#new',     as: 'new_group_guardian_message'
+  post  '/groups/:id/guardians/messages',     to: 'group_guardians_messages#create',  as: 'group_guardian_message'
 
   resources :groups
   resources :students

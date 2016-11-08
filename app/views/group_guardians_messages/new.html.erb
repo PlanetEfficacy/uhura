@@ -1,0 +1,15 @@
+<div class="container">
+  <%= render "/shared/forms/header", header: "Message to group: #{@group.name}" %>
+  <div class="row">
+    <h5>Messaging guardians:</h5>
+    <p class="flow-text"><%= @group.primary_guardian_names.join(", ") %></p>
+  </div>
+
+  <div class="row">
+    <%= form_for @message, url: group_guardian_message_path(@group) do |f| %>
+      <%= render "/shared/forms/messages", form: f %>
+    <% end %>
+  </div>
+
+  <%= render 'shared/help/modal', header: "Message", text: Dialogue.new_message_help  %>
+</div>

@@ -8,14 +8,17 @@
 
               <div class="row valign-wrapper">
                 <div>
-                  <%= link_to (render "shared/icon", icon: "textsms"), new_group_message_path(group), class: "btn-floating btn-small waves-effect waves-light indigo darken-3" %>
+                  <%= link_to (render "shared/icon", icon: "textsms"),
+                      "#modal1",
+                      class: "btn-floating btn-small waves-effect waves-light indigo darken-3 group-text-btn" %>
+
                 </div>
                 <div class="col offset-m1">
                   <h5><%= link_to group.name, group_path(group), class: "indigo-text text-darken-3" %></h5>
                 </div>
               </div>
 
-              <div class="row">
+              <div class="card-action">
                 <a href="<%= new_student_path(group_id: group.id) %>" class="indigo-text text-darken-3">Add Student</a>
                 <a href="#" class="indigo-text text-darken-3">Upload Students</a>
               </div>
@@ -31,3 +34,5 @@
   <% end %>
 
 <%= render 'shared/main_button' %>
+<%= render "shared/help/group_message_modal" %>
+<%= hidden_field_tag 'selected_group' %>

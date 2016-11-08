@@ -49,4 +49,15 @@ RSpec.describe Student, type: :model do
      expect(student.primary_guardian).to eq(guardian)
    end
 
+  #  it "has can find all primary guardians" do
+  #    student = FactoryGirl.create(:student)
+  #    student_2 = FactoryGirl.create(:student)
+  #    guardian = FactoryGirl.create(:guardian, primary: true)
+  #    guardian_2 = FactoryGirl.create(:guardian, primary: true)
+  #    FactoryGirl.create(:guardianship, student: student, guardian: guardian)
+  #    FactoryGirl.create(:guardianship, student: student_2, guardian: guardian_2)
+   #
+  #    expect(Student.primary_guardians).to eq([guardian, guardian_2])
+  #  end
+
 end

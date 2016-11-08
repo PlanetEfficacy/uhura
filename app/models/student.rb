@@ -15,4 +15,7 @@ class Student < ApplicationRecord
 
   include Contactable
 
+  def primary_guardian
+    guardians.active.find_by(primary: true)
+  end
 end

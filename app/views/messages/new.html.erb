@@ -3,7 +3,13 @@
 
   <div class="row">
     <%= form_for @message do |f| %>
-      <%= hidden_field_tag "contact_id", @message.contact_id %>
+
+      <% if @group %>
+        <%= hidden_field_tag "group_id", @group.id %>
+      <% else %>
+        <%= hidden_field_tag "contact_id", @message.contact_id %>
+      <% end %>
+
       <div class="input-field">
         <%= f.label :body %>
         <%= f.text_area :body, class: "materialize-textarea" %>

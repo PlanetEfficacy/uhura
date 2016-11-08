@@ -1,3 +1,5 @@
+<%= render "/shared/group_card", group: @group %>
+
 <div class="container row">
   <ul class="collection col s12 m6 offset-m3">
     <% @group.students.active.each do |student| %>

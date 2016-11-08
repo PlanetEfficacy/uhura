@@ -30,7 +30,23 @@ RSpec.describe Group, type: :model do
     expect(group.student_message_count).to eq(2)
   end
 
-  xit "knows total number of messages sent to guardians" do
+  it "knows the names of all of its students' primary guardians" do
+    group = FactoryGirl.create(:group)
+    students = FactoryGirl.create_list(:student, 2)
+    students.each do |student|
+      FactoryGirl.create(:enrollment, student: student, group: group)
+      guardian = FactoryGirl.create(:guardian, primary: true)
+      FactoryGirl.create(:guardianship, guardian: guardian, student: student)
+    end
+
+    unattached_guardian = FactoryGirl.create(:guardian, primary: true)
+
+    expected = [Guardian.first.name, Guardian.second.name]
+
+    expect(group.primary_guardian_names).to eq(expected)
+  end
+
+  it "knows total number of messages sent to guardians" do
     user = FactoryGirl.create(:user)
     group = FactoryGirl.create(:group)
     students = FactoryGirl.create_list(:student, 2)

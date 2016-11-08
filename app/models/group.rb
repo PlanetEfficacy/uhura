@@ -12,6 +12,14 @@ class Group < ApplicationRecord
   end
 
   def guardian_message_count
-    # binding.pry
+    students.map do |student|
+      student.guardians.map do |guardian|
+        guardian.messages.count
+      end
+    end.flatten.sum
+  end
+
+  def primary_guardian_names
+    students.map { |student| student.primary_guardian.name }
   end
 end

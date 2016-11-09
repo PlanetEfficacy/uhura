@@ -5,16 +5,17 @@ class GroupUploadController < ApplicationController
 
   def create
     group_maker = GroupMaker.new(current_group, file)
-    if group_maker.success?
-      redirect_to group_path(current_group)
-    else
-      # sad path
-    end
+    group_maker.create_students_and_guardians
+    redirect_to group_path(current_group)
   end
 
   private
 
     def current_group
       Group.find(params[:id])
+    end
+
+    def file
+      params[:file]
     end
 end

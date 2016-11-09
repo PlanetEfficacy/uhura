@@ -8,7 +8,7 @@
         <%= render "shared/collection",
             contact: guardian,
             path: guardian_path(guardian, student_id: @student.id),
-            relationship: guardian.relationship %>
+            relationship: guardian.relationship_type %>
       <% end %>
     </ul>
   </div>

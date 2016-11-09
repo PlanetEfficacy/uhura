@@ -5,7 +5,7 @@ class GuardiansController < ApplicationController
   end
 
   def create
-    @relationship = Relationship.find_or_create_by(type: params[:relationship])
+    @relationship = Relationship.find_or_create_by(relationship: params[:relationship])
     @guardian = Guardian.new(guardian_params)
     @guardian.relationship = @relationship
     if @guardian.save!
@@ -43,7 +43,7 @@ class GuardiansController < ApplicationController
   def guardian_params
     whitelist = params.require(:guardian).permit(:first_name, :last_name)
     whitelist["language_code"] = params[:language_code]
-    whitelist["relationship_id"] = Relationship.find_or_create_by(type: params[:relationship]).id
+    whitelist["relationship_id"] = Relationship.find_or_create_by(relationship: params[:relationship]).id
     whitelist["primary"] = primary?
     return whitelist
   end

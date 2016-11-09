@@ -10,20 +10,27 @@ RSpec.describe GroupMaker do
     group_maker.create_students_and_guardians
 
     expect(group.students.count).to eq(2)
-    expect(group.students.first.name).to eq("Jaime Lannister")
-    expect(group.students.first.phone_number).to eq("555-555-5555")
-    expect(group.students.first.language_code).to eq("en")
-    expect(group.students.first.name).to eq("Luke Skywalker")
-    expect(group.students.first.phone_number).to eq("555-555-5557")
-    expect(group.students.first.language_code).to eq("cy")
-    expect(group.students.first.primary_guardian.name).to eq("Tywin Lannister")
-    expect(group.students.first.primary_guardian.phone_number).to eq("555-555-5556")
-    expect(group.students.first.primary_guardian.language_code).to eq("en")
-    expect(group.students.first.primary_guardian.relationship).to eq("Father")
-    expect(group.students.second.primary_guardian.name).to eq("Darth Vader")
-    expect(group.students.second.primary_guardian.phone_number).to eq("555-555-5558")
-    expect(group.students.second.primary_guardian.language_code).to eq("pl")
-    expect(group.students.second.primary_guardian.relationship).to eq("Father")
-    expect(group_maker.success?).to eq(true)
+
+    jaime = group.students.find_by(first_name: "Jaime")
+    expect(jaime.name).to eq("Jaime Lannister")
+    expect(jaime.phone_number).to eq("555-555-5555")
+    expect(jaime.language_code).to eq("en")
+
+    luke = group.students.find_by(first_name: "Luke")
+    expect(luke.name).to eq("Luke Skywalker")
+    expect(luke.phone_number).to eq("555-555-5557")
+    expect(luke.language_code).to eq("cy")
+
+    tywin = jaime.primary_guardian
+    expect(tywin.name).to eq("Tywin Lannister")
+    expect(tywin.phone_number).to eq("555-555-5556")
+    expect(tywin.language_code).to eq("en")
+    expect(tywin.relationship_type).to eq("Father")
+
+    vader = luke.primary_guardian
+    expect(vader.name).to eq("Darth Vader")
+    expect(vader.phone_number).to eq("555-555-5558")
+    expect(vader.language_code).to eq("pl")
+    expect(vader.relationship_type).to eq("Father")
   end
 end

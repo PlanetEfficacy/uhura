@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   get   '/groups/:id/messages/new', to: 'group_messages#new',    as: 'new_group_message'
   post  '/groups/:id/messages',     to: 'group_messages#create', as: 'group_message'
+  get   '/groups/:id/upload/new',   to: 'group_upload#new',      as: 'new_upload'
+  post  '/groups/:id/upload',       to: 'group_upload#create',   as: 'upload'
 
   get   '/groups/:id/guardians/messages/new', to: 'group_guardians_messages#new',     as: 'new_group_guardian_message'
   post  '/groups/:id/guardians/messages',     to: 'group_guardians_messages#create',  as: 'group_guardian_message'
+
 
   resources :groups
   resources :students

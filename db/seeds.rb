@@ -21,7 +21,7 @@ class Seed
   def generate_relationships
     puts "Creating relationships...."
     FactoryGirl.create(:relationship)
-    FactoryGirl.create(:relationship, relationship: "Grandparent")
+    FactoryGirl.create(:relationship, type: "Grandparent")
   end
 
   def generate_students_and_guardians

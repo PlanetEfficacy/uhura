@@ -1,9 +1,9 @@
 class Guardian < ApplicationRecord
-  belongs_to :relationship
   has_many :guardianships
   has_many :students, through: :guardianships
   has_many :contacts, as: :contactable
   has_many :messages, through: :contacts
+  belongs_to :relationship
 
   enum status: [:inactive, :active]
 
@@ -11,5 +11,9 @@ class Guardian < ApplicationRecord
   # scope :not_inactive, -> { where.not(status: :inactive) }
 
   include Contactable
+
+  def relationship
+    relationship.type
+  end
 
 end

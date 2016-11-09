@@ -93,4 +93,15 @@ module Dialogue
     "ents, and families to communicate across language barri" + \
     "ers about the things that matter most."
   end
+
+  def self.bulk_upload_text
+    "To upload many students and guardians at one time, crea" + \
+    "te a csv file with the following headers: 'student firs" + \
+    "t name', 'student last name', 'student language', 'stud" + \
+    "ent phone number', 'guardian first name', 'guardian las" + \
+    "t name', 'guardian language', and 'guardian phone numbe" + \
+    "'. Each row will represent one student and their primar" + \
+    "y guardian. Use the form below to upload the csv, selec" + \
+    "t a group and click 'Upload'."
+  end
 end

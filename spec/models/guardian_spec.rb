@@ -6,4 +6,10 @@ RSpec.describe Guardian, type: :model do
   it { should have_many(:contacts) }
   it { should have_many(:messages) }
   it { should define_enum_for(:status).with([:inactive, :active]) }
+
+  it "has a relationship" do
+    # binding.pry
+    # guardian = FactoryGirl.create(:guardian)
+    # expect(guardian.relationship).to eq("Mother")
+  end
 end

@@ -106,9 +106,16 @@ module Dialogue
   end
 
   def self.how_to_make_groups
-    "It looks like you do not have any groups set up. Lets f" + \
-    "ix that! Just click on the button bellow or close this " + \
-    "pop up and click the yellow button in the bottom right " + \
-    "corner of the screen."
+    "It looks like you do not have any groups set up. Let's " + \
+    "fix that! Just click on the button bellow or close thi " + \
+    "s pop up and click the yellow button in the bottom rig " + \
+    "ht corner of the screen."
+  end
+
+  def self.how_to_make_students
+    "It looks like you do not have any students in this grou" + \
+    "p. Let's fix that! Just click on the button bellow or c" + \
+    "lose this pop up and click the yellow button in the bot" + \
+    "tom right corner of the screen."
   end
 end

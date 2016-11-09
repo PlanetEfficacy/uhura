@@ -1,0 +1,10 @@
+<div class="container row">
+  <ul class="collection col s12 m6 offset-m3">
+    <% @group.students.active.each do |student| %>
+      <%= render "shared/collection",
+          contact: student,
+          path: student_path(student, group_id: @group.id),
+          relationship: "Student" %>
+    <% end %>
+  </ul>
+</div>

@@ -9,6 +9,7 @@ RSpec.feature "user who visits group page and has no groups" do
 
     within "div.modal.start-open" do
       expect(page).to have_content(Dialogue.how_to_make_groups)
+      expect(page).to have_link("Create your first group")
     end
   end
 end

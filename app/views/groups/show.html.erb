@@ -1,15 +1,13 @@
-<%= render "/shared/group_card", group: @group %>
-
-<div class="container row">
-  <ul class="collection col s12 m6 offset-m3">
-    <% @group.students.active.each do |student| %>
-      <%= render "shared/collection",
-          contact: student,
-          path: student_path(student, group_id: @group.id),
-          relationship: "Student" %>
-    <% end %>
-  </ul>
-</div>
+<% if @group.students.count > 0 %>
+  <%= render "/shared/group_card", group: @group %>
+  <%= render "/shared/students", group: @group %>
+<% else %>
+  <%= render "shared/help/open_modal",
+      header: "Time to make some students!",
+      text: Dialogue.how_to_make_students,
+      link_text: "Create your first student",
+      link_path: new_student_path %>
+<% end %>
 
 <%= render "/shared/buttons/lg_amber_group",
     path: new_student_path(group_id: @group.id),

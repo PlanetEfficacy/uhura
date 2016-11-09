@@ -3,7 +3,7 @@
   <%= render "/shared/students", group: @group %>
 <% else %>
   <%= render "shared/help/open_modal",
-      header: "Time to make some students!",
+      header: "Time to add some students!",
       text: Dialogue.how_to_make_students,
       link_text: "Create your first student",
       link_path: new_student_path %>

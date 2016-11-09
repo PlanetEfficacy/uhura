@@ -118,4 +118,11 @@ module Dialogue
     "lose this pop up and click the yellow button in the bot" + \
     "tom right corner of the screen."
   end
+
+  def self.how_to_make_guardians
+    "It looks like you do not have any guardians attached to" + \
+    "this student. Let's fix that! Just click on the button " + \
+    "bellow or close this pop up and click the yellow button" + \
+    " in the bottom right corner of the screen."
+  end
 end

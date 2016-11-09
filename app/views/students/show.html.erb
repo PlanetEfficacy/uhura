@@ -1,19 +1,17 @@
 <div class="area-of-interest container">
-
   <%= render "shared/card", contact: @student %>
-
-  <div class="row">
-    <ul class="collection col s12 m6 offset-m3">
-      <% @student.guardians.active.each do |guardian| %>
-        <%= render "shared/collection",
-            contact: guardian,
-            path: guardian_path(guardian, student_id: @student.id),
-            relationship: guardian.relationship_type %>
-      <% end %>
-    </ul>
-  </div>
+  <% if @student.guardians.count > 0 %>
+      <%= render "/shared/student_show", student: @student %>
+  <% end %>
 </div>
 
+<% if @student.guardians.empty? %>
+  <%= render "shared/help/open_modal",
+      header: "Time to add some guardians!",
+      text: Dialogue.how_to_make_guardians,
+      link_text: "Create your first guardian",
+      link_path: new_guardian_path %>
+<% end %>
 
 <%= render "/shared/buttons/lg_amber",
     path: new_guardian_path(student_id: @student.id),

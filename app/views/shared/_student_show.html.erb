@@ -1,0 +1,10 @@
+<div class="row">
+  <ul class="collection col s12 m6 offset-m3">
+    <% student.guardians.active.each do |guardian| %>
+      <%= render "shared/collection",
+          contact: guardian,
+          path: guardian_path(guardian, student_id: student.id),
+          relationship: guardian.relationship_type %>
+    <% end %>
+  </ul>
+</div>

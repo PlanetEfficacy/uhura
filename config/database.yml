@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: uhura_production
-  username: uhura
-  password: <%= ENV['UHURA_DATABASE_PASSWORD'] %>

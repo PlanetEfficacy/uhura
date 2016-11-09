@@ -21,3 +21,5 @@
 
 coverage
 /spec/vcr_cassettes
+
+/public/assets

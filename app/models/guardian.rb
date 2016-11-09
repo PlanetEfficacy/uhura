@@ -12,4 +12,8 @@ class Guardian < ApplicationRecord
 
   include Contactable
 
+  def relationship_type
+    relationship.relationship
+  end
+
 end

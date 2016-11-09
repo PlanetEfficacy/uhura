@@ -11,10 +11,11 @@
   </ul>
 </div>
 
-<%= render "/shared/buttons/lg_amber",
+<%= render "/shared/buttons/lg_amber_group",
     path: new_student_path(group_id: @group.id),
     delete_path: group_path(@group),
-    edit_path: edit_group_path(@group) %>
+    edit_path: edit_group_path(@group),
+    upload_path: new_upload_path(@group) %>
 
 <%= render "shared/delete_modal",
     model: @group,

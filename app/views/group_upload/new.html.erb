@@ -1,0 +1,25 @@
+<div class="container">
+  <%= render "/shared/forms/header", header: "Bulk Upload for #{@group.name}" %>
+
+  <div class="row">
+    <%= form_tag(upload_path(@group), multipart: true, method: "post") do %>
+      <div class="file-field input-field">
+        <div class="btn btn-flat waves-effect waves-light amber accent-2">
+          <span>File</span>
+          <input name="file" type="file" accept="csv">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+
+      <div class="input-field center-align">
+        <%= submit_tag "Upload", class: "btn waves-effect waves-light indigo darken-3"  %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render 'shared/help/modal',
+      header: "Bulk Upload",
+      text: Dialogue.bulk_upload_text  %>
+</div>

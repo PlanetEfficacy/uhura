@@ -22,4 +22,8 @@ class Group < ApplicationRecord
   def primary_guardian_names
     students.map { |student| student.primary_guardian.name }
   end
+
+  def guardian_count
+    students.map { |student| student.guardians.count }.sum
+  end
 end

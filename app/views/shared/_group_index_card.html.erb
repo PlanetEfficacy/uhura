@@ -1,24 +1,24 @@
 <div class="col s12 m6 l4">
   <div class="card">
     <div class="card-content">
-
-      <div class="row valign-wrapper">
-        <div>
+      <div class="row center-align">
           <%= link_to (render "shared/icon", icon: "textsms"),
               "#modal1",
               class: "btn-floating btn-small waves-effect waves-light indigo darken-3 group-text-btn" %>
-
-        </div>
-        <div class="col offset-m1">
-          <h5><%= link_to group.name, group_path(group), class: "indigo-text text-darken-3" %></h5>
-        </div>
+          <h4><%= link_to group.name, group_path(group), class: "indigo-text text-darken-3" %></h4>
+          <div class="container">
+            <table>
+              <tr>
+                <th>Total Students:</th>
+                <td><%= group.students.count %></td>
+              </tr>
+              <tr>
+                <th>Total Guardians:</th>
+                <td><%= group.guardian_count %></td>
+              </tr>
+            </table>
+          </div>
       </div>
-
-      <div class="card-action">
-        <a href="<%= new_student_path(group_id: group.id) %>" class="indigo-text text-darken-3">Add Student</a>
-        <a href="#" class="indigo-text text-darken-3">Upload Students</a>
-      </div>
-
     </div>
   </div>
 </div>

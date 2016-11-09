@@ -6,7 +6,7 @@
       header: "Time to add some students!",
       text: Dialogue.how_to_make_students,
       link_text: "Create your first student",
-      link_path: new_student_path %>
+      link_path: new_student_path(group_id: @group.id) %>
 <% end %>
 
 <%= render "/shared/buttons/lg_amber_group",

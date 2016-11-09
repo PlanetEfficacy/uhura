@@ -60,4 +60,16 @@ RSpec.describe Group, type: :model do
 
     expect(group.guardian_message_count).to eq(2)
   end
+
+  it "knows total number of guardians" do
+    group = FactoryGirl.create(:group)
+    students = FactoryGirl.create_list(:student, 2)
+    students.each do |student|
+      FactoryGirl.create(:enrollment, student: student, group: group)
+      guardian = FactoryGirl.create(:guardian, primary: true)
+      FactoryGirl.create(:guardianship, guardian: guardian, student: student)
+    end
+
+    expect(group.guardian_count).to eq(2)
+  end
 end

@@ -7,8 +7,8 @@ RSpec.feature "user creates a student" do
     group = FactoryGirl.create(:group, user: user)
     student = FactoryGirl.attributes_for(:student)
 
-    visit root_path
-    click_link "Add Student"
+    visit group_path(group)
+    find("a.btn-floating.btn-large.waves-effect.waves-light.amber.accent-2").click
     expect(current_path).to eq(new_student_path)
 
     fill_in "First name", with: student[:first_name]

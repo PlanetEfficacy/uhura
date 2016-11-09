@@ -6,8 +6,10 @@ class Permission
   end
 
   def authorized?
-    if user.teacher?
-      return true if controller = "classes" && action.in?(%w(index))
+    if google_authenticated?
+      return true if controller == "groups" && action.in?(%w(index show new create destroy edit update))
+    else
+      return true if controller == "home" && action.in?(%w(index))
     end
     false
   end
@@ -16,4 +18,8 @@ class Permission
     attr_reader :user,
                 :controller,
                 :action
+
+    def google_authenticated?
+      !user.token.nil?
+    end
 end

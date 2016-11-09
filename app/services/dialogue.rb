@@ -104,4 +104,11 @@ module Dialogue
     "y guardian. Use the form below to upload the csv, selec" + \
     "t a group and click 'Upload'."
   end
+
+  def self.how_to_make_groups
+    "It looks like you do not have any groups set up. Lets f" + \
+    "ix that! Just click on the button bellow or close this " + \
+    "pop up and click the yellow button in the bottom right " + \
+    "corner of the screen."
+  end
 end

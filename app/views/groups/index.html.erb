@@ -1,34 +1,17 @@
 <div class="container row">
-  <% @groups.each do |group| %>
-
-      <div class="col s12 m6 l4">
-        <div class="card">
-          <div class="card-content">
-
-            <div class="row valign-wrapper">
-              <div>
-                <%= link_to (render "shared/icon", icon: "textsms"),
-                    "#modal1",
-                    class: "btn-floating btn-small waves-effect waves-light indigo darken-3 group-text-btn" %>
-
-              </div>
-              <div class="col offset-m1">
-                <h5><%= link_to group.name, group_path(group), class: "indigo-text text-darken-3" %></h5>
-              </div>
-            </div>
-
-            <div class="card-action">
-              <a href="<%= new_student_path(group_id: group.id) %>" class="indigo-text text-darken-3">Add Student</a>
-              <a href="#" class="indigo-text text-darken-3">Upload Students</a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
+  <% if @groups.count > 0 %>
+    <% @groups.each do |group| %>
+      <%= render "shared/group_index_card", group: group %>
+    <% end %>
+  <% else %>
+    <%= render "shared/help/open_modal",
+        header: "Time to make some groups!",
+        text: Dialogue.how_to_make_groups,
+        link_text: "Create your first group",
+        link_path: new_group_path %>
   <% end %>
 </div>
 
-<%= render 'shared/main_button' %>
+<%= render "shared/main_button" %>
 <%= render "shared/help/group_message_modal" %>
-<%= hidden_field_tag 'selected_group' %>
+<%= hidden_field_tag "selected_group" %>

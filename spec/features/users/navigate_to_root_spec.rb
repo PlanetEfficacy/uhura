@@ -2,8 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "user navigates to root" do
   scenario "by clicking on the logo" do
-    stub_omniauth
+    user = FactoryGirl.create(:user)
     student = FactoryGirl.create(:student)
+    
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit student_path(student)
 

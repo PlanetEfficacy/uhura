@@ -16,8 +16,10 @@ class Permission
       return true if controller == "group_upload" && action.in?(%w(new create))
       return true if controller == "guardians" && action.in?(%w(new create show edit update destroy))
       return true if controller == "messages" && action.in?(%w(new create))
+      return true if controller == "sessions" && action.in?(%w(destroy))
     else
       return true if controller == "home" && action.in?(%w(index))
+      return true if controller == "sessions" && action.in?(%w(create))
     end
     false
   end

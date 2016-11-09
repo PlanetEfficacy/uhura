@@ -17,34 +17,34 @@ RSpec.describe GuardiansController, type: :controller do
     end
   end
 
-  describe "anonymous POST create" do
+  describe "anonymous GET show" do
     it "redirects to home page" do
       get :show, id: guardian.id
       expect(response).to redirect_to(root_path)
     end
   end
 
-  describe "anonymous POST create" do
+  describe "anonymous GET edit" do
     it "redirects to home page" do
       get :edit, id: guardian.id
       expect(response).to redirect_to(root_path)
     end
   end
 
-  describe "anonymous POST create" do
+  describe "anonymous PUT update" do
     it "redirects to home page" do
       put :update, id: guardian.id
       expect(response).to redirect_to(root_path)
     end
   end
 
-  describe "anonymous POST create" do
+  describe "anonymous PATCH update" do
     it "redirects to home page" do
       patch :update, id: guardian.id
       expect(response).to redirect_to(root_path)
     end
   end
-  describe "anonymous POST create" do
+  describe "anonymous DELETE destroy" do
     it "redirects to home page" do
       delete :destroy, id: guardian.id
       expect(response).to redirect_to(root_path)

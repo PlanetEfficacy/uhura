@@ -4,8 +4,6 @@ $(document).ready(function() {
   $('.parallax').parallax();
   $('#open-modal').modal('open')
 
-  //$('#picker-button').on('click', onApiLoad())
-
   $('a.group-text-btn').on('click', function(){
     var href = $(this).parent().next().find('a').attr('href');
     var groupName = $(this).parent().next().find('a').text()
@@ -17,6 +15,4 @@ $(document).ready(function() {
     $('#guardians').attr('href', guardianUrl);
     $('#students').attr('href', studentUrl);
   })
-
-
 });

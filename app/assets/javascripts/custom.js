@@ -2,7 +2,7 @@ $(document).ready(function() {
   $('.modal').modal()
   $('select').material_select();
   $('.parallax').parallax();
-  $('.start-open').modal('open')
+  $('#open-modal').modal('open')
 
   //$('#picker-button').on('click', onApiLoad())
 

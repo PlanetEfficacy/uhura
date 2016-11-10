@@ -1,10 +1,7 @@
-<div class="area-of-interest container">
-
-  <%= render "shared/card", contact: @guardian %>
-
-  <div class="row">
+<%= render "shared/guardian_card", guardian: @guardian %>
+  <div class="container row">
     <ul class="collection col s12 m6 offset-m3">
-      <% @guardian.students.each do |student| %>
+      <% @guardian.students.active.each do |student| %>
         <%= render "shared/collection",
             contact: student,
             path: student_path(student),

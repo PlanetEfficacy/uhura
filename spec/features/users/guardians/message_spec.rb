@@ -24,13 +24,10 @@ RSpec.feature "user messages a guardian" do
       click_on "Send"
 
       expect(current_path).to eq(guardian_path(guardian))
-
-      within ".area-of-interest" do
-        expect(page).to have_content(guardian.name)
-        expect(page).to have_content(guardian.language)
-        expect(page).to have_content(guardian.phone_number)
-        expect(page).to have_content("Total messages: 1")
-      end
+      expect(page).to have_content(guardian.name)
+      expect(page).to have_content(guardian.language)
+      expect(page).to have_content(guardian.phone_number)
+      expect(page).to have_content("Total messages: 1")      
     end
   end
 end

@@ -1,17 +1,29 @@
 <div class="container row">
   <div class="card">
     <div class="card-content">
-      <h4><%= group.name %></h4>
-      <table>
-        <tr>
-          <th>Total student messages:</th>
-          <td><%= group.student_message_count %></td>
-        </tr>
-        <tr>
-          <th>Total guardian messages:</th>
-          <td><%= group.guardian_message_count %></td>
-        </tr>
-      </table>
+      <div class="center-align">
+        <h4><%= group.name %></h4>
+      </div>
+      <div class="container">
+        <table>
+          <tr>
+            <th>Enrollment count:</th>
+            <td><%= group.students.count %></td>
+          </tr>
+          <tr>
+            <th>Total student messages:</th>
+            <td><%= group.student_message_count %></td>
+          </tr>
+          <tr>
+            <th>Guardian count:</th>
+            <td><%= group.guardian_count %></td>
+          </tr>
+          <tr>
+            <th>Total guardian messages:</th>
+            <td><%= group.guardian_message_count %></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>

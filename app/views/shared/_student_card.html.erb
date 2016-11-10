@@ -1,0 +1,25 @@
+<div class="container row">
+  <div class="card">
+    <div class="card-content">
+      <div class="center-align">
+        <h4><%= student.name %></h4>
+      </div>
+      <div class="container">
+        <table class="centered">
+          <tr>
+            <th>Phone:</th>
+            <td><%= student.phone_number %></td>
+          </tr>
+          <tr>
+            <th>Language:</th>
+            <td><%= student.language %></td>
+          </tr>
+          <tr>
+            <th>Total messages:</th>
+            <td><%= student.messages.count %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

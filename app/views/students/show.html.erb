@@ -1,11 +1,8 @@
-<div class="area-of-interest container">
-  <%= render "shared/card", contact: @student %>
-  <% if @student.guardians.count > 0 %>
-      <%= render "/shared/student_show", student: @student %>
-  <% end %>
-</div>
+<%= render "shared/student_card", student: @student %>
 
-<% if @student.guardians.empty? %>
+<% if @student.guardians.count > 0 %>
+    <%= render "/shared/guardian_collection", student: @student %>
+<% else %>
   <%= render "shared/help/open_modal",
       header: "Time to add some guardians!",
       text: Dialogue.how_to_make_guardians,

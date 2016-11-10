@@ -24,10 +24,8 @@ RSpec.feature "user messages a student" do
       click_on "Send"
 
       expect(current_path).to eq(student_path(student))
-      within ".area-of-interest" do
-        expect(page).to have_content(student.name)
-        expect(page).to have_content("Total messages: 1")
-      end
+      expect(page).to have_content(student.name)
+      expect(page).to have_content("Total messages: 1")
     end
   end
 end

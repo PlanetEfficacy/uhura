@@ -10,9 +10,7 @@ RSpec.feature "user deletes a student" do
 
     visit student_path(student, group_id: group.id)
 
-    within ".area-of-interest" do
-      expect(page).to have_content(student.name)
-    end
+    expect(page).to have_content(student.name)
 
     find("#delete").click
     find("#confirm-delete").click

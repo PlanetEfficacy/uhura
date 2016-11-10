@@ -108,8 +108,8 @@ module Dialogue
   def self.how_to_make_groups
     "It looks like you do not have any groups set up. Let's " + \
     "fix that! Just click on the button below or close this " + \
-    " pop up and click the yellow button in the bottom righ " + \
-    "t corner of the screen."
+    "pop up and click the yellow button in the bottom right " + \
+    " corner of the screen."
   end
 
   def self.how_to_make_students

@@ -31,8 +31,8 @@ module Dialogue
     "Messages are sent via sms to students, guardians, and o" + \
     "r groups. They are automatically translated into your t" + \
     "he default language of your selected recipient. To crea" + \
-    "te a new message, complete type a message in the field " + \
-    "below and click \"send\"."
+    "te a new message, type a message in the field below and" + \
+    "click \"send\"."
   end
 
   def self.new_guardian_help
@@ -43,8 +43,8 @@ module Dialogue
     "in the case of a parent with more than one child in a s" + \
     "chool. To create a new guardian, complete the form belo" + \
     "w and click \"send\". To link an already existing guard" + \
-    "to a student, choose a guardian from the list and click" + \
-    "\"send\"."
+    " to a student, choose a guardian from the list and clic" + \
+    "k\"send\"."
   end
 
   def self.edit_guardian_help
@@ -54,8 +54,8 @@ module Dialogue
 
   def self.primary_contact_help
     "This guardian is a student's primary contact. A primary" + \
-    "contact is the default number Uhura will send messages " + \
-    "to when messaging a student's guardian."
+    " contact is the default number Uhura will send messages" + \
+    " to when messaging a student's guardian."
   end
 
   def self.landing_page_left_content_block_header

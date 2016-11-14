@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post  '/groups/:id/upload',       to: 'group_upload#create',   as: 'upload'
   get   '/groups/:id/add',          to: 'add_student#new',       as: 'new_add_student'
   post  '/groups/:id/add',          to: 'add_student#create',    as: 'add_student'
+  get   '/students/:id/add',        to: 'add_guardian#new',       as: 'new_add_guardian'
+  post  '/students/:id/add',        to: 'add_guardian#create',    as: 'add_guardian'
 
   get   '/groups/:id/guardians/messages/new', to: 'group_guardians_messages#new',     as: 'new_group_guardian_message'
   post  '/groups/:id/guardians/messages',     to: 'group_guardians_messages#create',  as: 'group_guardian_message'

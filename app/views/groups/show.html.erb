@@ -10,11 +10,12 @@
       link_path: new_student_path(group_id: @group.id) %>
 <% end %>
 
-<%= render "/shared/buttons/lg_amber_group",
+<%= render "/shared/buttons/group_show",
     path: new_student_path(group_id: @group.id),
     delete_path: group_path(@group),
     edit_path: edit_group_path(@group),
-    upload_path: new_upload_path(@group) %>
+    upload_path: new_upload_path(@group),
+    add_path: new_add_student_path(@group) %>
 
 <%= render "shared/delete_modal",
     model: @group,

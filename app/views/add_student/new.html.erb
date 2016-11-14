@@ -5,7 +5,7 @@
     <%= form_tag(add_student_path(@group), method: "post") do %>
       <div class="input-field">
         <%= select_tag :student,
-            options_for_select(AddStudent.new(current_user).dropdown),
+            options_for_select(AddContactable.new(current_user).student_dropdown),
             id: "student-select" %>
         <%= label_tag "Add existing student" %>
       </div>
@@ -16,6 +16,7 @@
     <% end %>
   </div>
 
-  <%= render 'shared/help/modal', header: "Students",
-                                  text: Dialogue.new_student_help %>
+  <%= render 'shared/help/modal',
+      header: "Adding an existing student",
+      text: Dialogue.existing_student_help %>
 </div>

@@ -125,4 +125,16 @@ module Dialogue
     "below or close this pop up and click the yellow button " + \
     "in the bottom right corner of the screen."
   end
+
+  def self.existing_student_help
+    "Students can be a part of multiple groups. To add a stu" + \
+    "dent from another group into this group, select their n" + \
+    "ame from the dropdown and click add."
+  end
+
+  def self.existing_guardian_help
+    "Guardians can be the guardian of more than one student." + \
+    " To add a guardian from another student to this student" + \
+    ", select their name from the dropdown and click add."
+  end
 end

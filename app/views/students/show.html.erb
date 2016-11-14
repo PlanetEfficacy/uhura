@@ -10,10 +10,11 @@
       link_path: new_guardian_path(student_id: @student.id) %>
 <% end %>
 
-<%= render "/shared/buttons/lg_amber",
+<%= render "/shared/buttons/student_show",
     path: new_guardian_path(student_id: @student.id),
     delete_path: student_path(@student),
-    edit_path: edit_student_path(@student) %>
+    edit_path: edit_student_path(@student),
+    add_path: new_add_guardian_path(@student) %>
 
 <%= render "shared/delete_modal",
     model: @student,

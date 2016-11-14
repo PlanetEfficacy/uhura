@@ -6,7 +6,6 @@ class Permission
   end
 
   def authorized?
-    # binding.pry if controller != "groups"
     if google_authenticated?
       return true if controller == "home" && action.in?(%w(index))
       return true if controller == "groups" && action.in?(%w(index show new create destroy edit update))
@@ -18,6 +17,7 @@ class Permission
       return true if controller == "messages" && action.in?(%w(new create))
       return true if controller == "sessions" && action.in?(%w(destroy))
       return true if controller == "add_student" && action.in?(%w(new create))
+      return true if controller == "add_guardian" && action.in?(%w(new create))
     else
       return true if controller == "home" && action.in?(%w(index))
       return true if controller == "sessions" && action.in?(%w(create))

@@ -5,16 +5,22 @@ class GuardiansController < ApplicationController
   end
 
   def create
-    @relationship = Relationship.find_or_create_by(relationship: params[:relationship])
-    @guardian = Guardian.new(guardian_params)
-    @guardian.relationship = @relationship
-    if @guardian.save!
-      Guardianship.create(student: current_student, guardian: @guardian)
-      @guardian.contacts << Contact.new(contact_params)
-      redirect_to student_path(current_student)
+    guardian_creator = GuardianCreator.create(params)
+    if guardian_creator.success
+      redirect_to student_path(guardian_creator.student)
     else
       # sad path
     end
+    # @relationship = Relationship.find_or_create_by(relationship: params[:relationship])
+    # @guardian = Guardian.new(guardian_params)
+    # @guardian.relationship = @relationship
+    # if @guardian.save!
+    #   Guardianship.create(student: current_student, guardian: @guardian)
+    #   @guardian.contacts << Contact.new(contact_params)
+    #   redirect_to student_path(current_student)
+    # else
+    #   # sad path
+    # end
   end
 
   def show

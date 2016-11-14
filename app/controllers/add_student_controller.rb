@@ -6,7 +6,7 @@ class AddStudentController < ApplicationController
   def create
     student = Student.find(params[:student])
     group = Group.find(params[:id])
-    Enrollment.create(student: student, group: group)
+    Enrollment.find_or_create_by(student: student, group: group)
     redirect_to group_path(group)
   end
 end

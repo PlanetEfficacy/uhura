@@ -11,16 +11,6 @@ class GuardiansController < ApplicationController
     else
       # sad path
     end
-    # @relationship = Relationship.find_or_create_by(relationship: params[:relationship])
-    # @guardian = Guardian.new(guardian_params)
-    # @guardian.relationship = @relationship
-    # if @guardian.save!
-    #   Guardianship.create(student: current_student, guardian: @guardian)
-    #   @guardian.contacts << Contact.new(contact_params)
-    #   redirect_to student_path(current_student)
-    # else
-    #   # sad path
-    # end
   end
 
   def show
@@ -53,7 +43,7 @@ class GuardiansController < ApplicationController
     whitelist["primary"] = primary?
     return whitelist
   end
-
+  
   def primary?
     params[:primary_contact] == "on"
   end

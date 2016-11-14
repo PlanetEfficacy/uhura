@@ -7,7 +7,7 @@ RSpec.feature "user creates a group" do
 
     visit root_path
 
-    find("#new-group").click
+    find(".btn-floating.btn-large.waves-effect.waves-light.amber.accent-2").click
 
     fill_in "Name", with: "605"
     click_on "Create"

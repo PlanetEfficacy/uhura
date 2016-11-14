@@ -94,11 +94,11 @@ module Languages
   end
 
   def self.find(code)
-    all.find { |language| language[1] == code }[0]
+    all.find { |language| language[1].downcase == code.downcase }[0]
   end
 
   def self.find_code(lookup_language)
-    all.find { |language| language[0] == lookup_language }[1]
+    all.find { |language| language[0].downcase == lookup_language.downcase }[1]
   end
 
 

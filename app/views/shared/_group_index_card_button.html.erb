@@ -1,0 +1,9 @@
+<% if group.students.empty? %>
+  <%= link_to (render "shared/icon", icon: "textsms"),
+      "#modal1",
+      class: "btn-floating btn-small waves-effect waves-light indigo darken-3 group-text-btn disabled" %>
+<% else %>
+  <%= link_to (render "shared/icon", icon: "textsms"),
+      "#modal1",
+      class: "btn-floating btn-small waves-effect waves-light indigo darken-3 group-text-btn" %>
+<% end %>

@@ -2,9 +2,7 @@
   <div class="card">
     <div class="card-content">
       <div class="row center-align">
-          <%= link_to (render "shared/icon", icon: "textsms"),
-              "#modal1",
-              class: "btn-floating btn-small waves-effect waves-light indigo darken-3 group-text-btn" %>
+          <%= render "shared/group_index_card_button", group: group %>
           <h4><%= link_to group.name, group_path(group), class: "indigo-text text-darken-3" %></h4>
           <div class="container">
             <table>

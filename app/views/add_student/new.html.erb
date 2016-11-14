@@ -1,0 +1,21 @@
+<div class="container">
+  <%= render "/shared/forms/header", header: "Add Existing Student" %>
+
+  <div class="row">
+    <%= form_tag(add_student_path(@group), method: "post") do %>
+      <div class="input-field">
+        <%= select_tag :student,
+            options_for_select(AddStudent.new(current_user).dropdown),
+            id: "student-select" %>
+        <%= label_tag "Add existing student" %>
+      </div>
+
+      <div class="input-field">
+        <%= submit_tag "Add", class: "btn waves-effect waves-light indigo darken-3"  %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= render 'shared/help/modal', header: "Students",
+                                  text: Dialogue.new_student_help %>
+</div>

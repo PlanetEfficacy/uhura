@@ -13,7 +13,7 @@ RSpec.feature "user creates many students and guardians" do
     click_button "Upload"
 
     expect(current_path).to eq(group_path(group))
-    expect(page).to have_css("li.collection-item", count: 2)
+    expect(page).to have_css("li.collection-item", count: 4)
 
     click_link "Jaime Lannister"
     expect(page).to have_css("li.collection-item", count: 1)

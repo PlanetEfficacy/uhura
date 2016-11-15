@@ -20,10 +20,15 @@ class Group < ApplicationRecord
   end
 
   def primary_guardian_names
-    students.map { |student| student.primary_guardian.name }
+    primary_guardians.map { |primary_guardian| primary_guardian.name }
   end
 
   def guardian_count
     students.map { |student| student.guardians.count }.sum
+  end
+
+  def primary_guardians
+    primary = students.order(:last_name).map { |student| student.primary_guardian }
+    primary.all? { |guardian| guardian.nil? } ? [] : primary
   end
 end

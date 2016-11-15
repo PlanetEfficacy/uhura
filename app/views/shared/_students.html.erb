@@ -1,10 +1,26 @@
-<div class="container row">
-  <ul class="collection col s12 m6 offset-m3">
-    <% @group.students.active.each do |student| %>
-      <%= render "shared/collection",
-          contact: student,
-          path: student_path(student, group_id: @group.id),
-          relationship: "Student" %>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="col s12 m5">
+      <h5>Students</h5>
+      <ul class="collection">
+        <% @group.students.active.each do |student| %>
+        <%= render "shared/collection",
+        contact: student,
+        path: student_path(student, group_id: @group.id),
+        relationship: "Student" %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col s12 m5 offset-m2">
+      <h5>Primary Guardians</h5>
+      <ul class="collection">
+        <% @primary_guardians.each do |guardian| %>
+        <%= render "shared/collection",
+        contact: guardian,
+        path: guardian_path(guardian, group_id: @group.id),
+        relationship: guardian.relationship_type %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>

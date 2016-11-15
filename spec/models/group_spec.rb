@@ -40,8 +40,9 @@ RSpec.describe Group, type: :model do
     end
 
     unattached_guardian = FactoryGirl.create(:guardian, primary: true)
-
-    expected = [Guardian.first.name, Guardian.second.name]
+    students.sort_by! { |student| student.last_name }
+    expected = [students.first.primary_guardian.name,
+                students.last.primary_guardian.name]
 
     expect(group.primary_guardian_names).to eq(expected)
   end
@@ -71,5 +72,25 @@ RSpec.describe Group, type: :model do
     end
 
     expect(group.guardian_count).to eq(2)
+  end
+
+  it "can return primary guardians" do
+    group = FactoryGirl.create(:group)
+    students = FactoryGirl.create_list(:student, 2)
+    students.each do |student|
+      FactoryGirl.create(:enrollment, student: student, group: group)
+      guardian = FactoryGirl.create(:guardian, primary: true)
+      guardian_2 = FactoryGirl.create(:guardian)
+      FactoryGirl.create(:guardianship, guardian: guardian, student: student)
+      FactoryGirl.create(:guardianship, guardian: guardian_2, student: student)
+    end
+
+    expected = students.sort_by do |student|
+      student.last_name
+    end
+
+    expect(group.primary_guardians.count).to eq(2)
+    expect(group.primary_guardians.first).to eq(expected.first.primary_guardian)
+    expect(group.primary_guardians.last).to eq(expected.last.primary_guardian)
   end
 end

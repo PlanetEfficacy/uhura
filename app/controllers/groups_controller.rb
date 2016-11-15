@@ -18,6 +18,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = current_group
+    @primary_guardians = current_group.primary_guardians
   end
 
   def destroy

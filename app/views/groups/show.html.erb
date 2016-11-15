@@ -1,7 +1,7 @@
 <%= render "/shared/group_card", group: @group %>
 
 <% if @group.students.count > 0 %>
-  <%= render "/shared/students", group: @group %>
+  <%= render "/shared/students", group: @group, primary_guardian: @primary_guardian %>
 <% else %>
   <%= render "shared/help/open_modal",
       header: "Time to add some students!",

@@ -11,11 +11,11 @@ class BulkMessage
   end
 
   def message_students
-    group.students.map { |student| message(student) }
+    group.students.active.map { |student| message(student) }
   end
 
   def message_guardians
-    group.students.map { |student| message(student.primary_guardian) }
+    group.students.active.map { |student| message(student.primary_guardian) }
   end
 
   private

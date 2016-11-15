@@ -36,7 +36,7 @@ RSpec.feature "user messages a group of students' guardians" do
       end
 
       within "div.row > p" do
-        expect(page).to have_content("#{guardian_1.name}, #{guardian_2.name}")
+        expect(page).to have_content(group.primary_guardian_names.join(", "))
       end
 
       within "p.flow-text" do

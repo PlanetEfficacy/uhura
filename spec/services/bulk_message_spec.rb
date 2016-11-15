@@ -64,4 +64,33 @@ RSpec.describe BulkMessage do
       expect(messages.last.body).to eq(body)
     end
   end
+
+  it "only sends messages to active students" do
+    user = FactoryGirl.create(:user)
+    group = FactoryGirl.create(:group, user: user)
+    student_1 = FactoryGirl.create(:student, status: :inactive)
+    guardian_1 = FactoryGirl.create(:guardian, primary: true)
+    FactoryGirl.create(:guardianship, student: student_1, guardian: guardian_1)
+    FactoryGirl.create(:enrollment, group: group, student: student_1)
+
+    bulk_message = BulkMessage.new(group, "body")
+    messages = bulk_message.message_students
+
+    expect(messages.empty?).to eq(true)
+  end
+
+  it "only sends messages to active students' guardians" do
+    user = FactoryGirl.create(:user)
+    group = FactoryGirl.create(:group, user: user)
+    student_1 = FactoryGirl.create(:student, status: :inactive)
+    guardian_1 = FactoryGirl.create(:guardian, primary: true)
+    FactoryGirl.create(:guardianship, student: student_1, guardian: guardian_1)
+    FactoryGirl.create(:enrollment, group: group, student: student_1)
+
+    bulk_message = BulkMessage.new(group, "body")
+    messages = bulk_message.message_guardians
+
+    expect(messages.empty?).to eq(true)
+  end
+
 end

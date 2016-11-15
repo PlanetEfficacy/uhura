@@ -14,7 +14,7 @@
     <div class="col s12 m5 offset-m2">
       <h5>Primary Guardians</h5>
       <ul class="collection">
-        <% @primary_guardians.each do |guardian| %>
+        <% @group.primary_guardians.each do |guardian| %>
         <%= render "shared/collection",
         contact: guardian,
         path: guardian_path(guardian, group_id: @group.id),

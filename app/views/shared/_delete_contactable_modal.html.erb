@@ -1,0 +1,20 @@
+<div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <h4>Confirmation</h4>
+      <p class="flow-text">
+        Are you sure you want to delete
+        <strong><%= "#{model.name}" %></strong>?
+        This action cannot be undone.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <%= link_to "Cancel",
+                  "#!",
+                  class: "modal-close modal-action waves-effect waves-indigo btn-flat" %>
+      <%= link_to "Delete this #{model.class}",
+                  path,
+                  method: :delete,
+                  class: "modal-action modal-close waves-effect waves-indigo btn-flat",
+                  id: "confirm-delete" %>
+    </div>
+  </div>

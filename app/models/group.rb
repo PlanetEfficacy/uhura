@@ -29,6 +29,6 @@ class Group < ApplicationRecord
 
   def primary_guardians
     primary = students.order(:last_name).map { |student| student.primary_guardian }
-    primary.all? { |guardian| guardian.nil? } ? [] : primary
+    primary.all? { |guardian| guardian.nil? } ? [] : primary.compact
   end
 end

@@ -3,7 +3,7 @@
     <div class="col s12 m5">
       <h5>Students</h5>
       <ul class="collection">
-        <% @group.students.active.each do |student| %>
+        <% @group.students.active.order(:last_name).each do |student| %>
         <%= render "shared/collection",
         contact: student,
         path: student_path(student, group_id: @group.id),

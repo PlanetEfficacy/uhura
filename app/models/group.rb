@@ -8,11 +8,11 @@ class Group < ApplicationRecord
   end
 
   def student_message_count
-    students.joins(:contacts).joins(:messages).count
+    students.active.joins(:contacts).joins(:messages).count
   end
 
   def guardian_message_count
-    students.map do |student|
+    students.active.map do |student|
       student.guardians.map do |guardian|
         guardian.messages.count
       end
@@ -31,4 +31,25 @@ class Group < ApplicationRecord
     primary = students.order(:last_name).map { |student| student.primary_guardian }
     primary.all? { |guardian| guardian.nil? } ? [] : primary.compact
   end
+
+  def enrollment_display_scale
+    add_one_to_max(students.active.count, guardian_count)
+  end
+
+  def message_display_scale
+    add_one_to_max(student_message_count, guardian_message_count)
+  end
+
+  def has_enrollment?
+    students.active.count > 0
+  end
+
+  def has_message?
+    student_message_count > 0 || guardian_message_count > 0
+  end
+
+  private
+    def add_one_to_max(number_1, number_2)
+      number_1 >= number_2 ? number_1 + 1 : number_2 + 1
+    end
 end

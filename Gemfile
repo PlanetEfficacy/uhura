@@ -13,6 +13,7 @@ gem 'omniauth-google-oauth2'
 gem 'faker'
 gem 'twilio-ruby'
 gem 'google-cloud'
+gem 'chartkick'
 
 group :development, :test do
   gem 'byebug', platform: :mri

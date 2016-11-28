@@ -93,4 +93,57 @@ RSpec.describe Group, type: :model do
     expect(group.primary_guardians.first).to eq(expected.first.primary_guardian)
     expect(group.primary_guardians.last).to eq(expected.last.primary_guardian)
   end
+
+  it "has an enrollment display scale" do
+    group = FactoryGirl.create(:group)
+    students = FactoryGirl.create_list(:student, 2)
+    students.each do |student|
+      FactoryGirl.create(:enrollment, student: student, group: group)
+      guardian = FactoryGirl.create(:guardian, primary: true)
+      guardian_2 = FactoryGirl.create(:guardian)
+      FactoryGirl.create(:guardianship, guardian: guardian, student: student)
+      FactoryGirl.create(:guardianship, guardian: guardian_2, student: student)
+    end
+
+    expect(group.enrollment_display_scale).to eq(5)
+  end
+
+  it "has a message display scale" do
+    user = FactoryGirl.create(:user)
+    group = FactoryGirl.create(:group)
+    students = FactoryGirl.create_list(:student, 2)
+    students.each do |student|
+      FactoryGirl.create(:enrollment, student: student, group: group)
+      student_contact = FactoryGirl.create(:contact, contactable: student)
+      guardian = FactoryGirl.create(:guardian)
+      FactoryGirl.create(:guardianship, student: student, guardian: guardian)
+      contact = FactoryGirl.create(:contact, contactable: guardian)
+      FactoryGirl.create(:message, contact: contact, user: user)
+      FactoryGirl.create_list(:message, 2, contact: student_contact, user: user)
+    end
+
+    expect(group.message_display_scale).to eq(5)
+  end
+
+  it "knows if it has enrollment" do
+    group = FactoryGirl.create(:group)
+    expect(group.has_enrollment?).to eq(false)
+
+    FactoryGirl.create(:enrollment, group: group)
+    expect(group.has_enrollment?).to eq(true)
+  end
+
+  it "knows if it has messages" do
+    group = FactoryGirl.create(:group)
+    expect(group.has_message?).to eq(false)
+
+    student = FactoryGirl.create(:student)
+    FactoryGirl.create(:enrollment, student: student, group: group)
+
+    contact = FactoryGirl.create(:contact, contactable: student)
+    FactoryGirl.create(:message, contact: contact)
+
+    expect(group.has_message?).to eq(true)
+  end
+
 end

@@ -52,7 +52,7 @@ RSpec.feature "user messages a group of students' guardians" do
 
       within ".card-content" do
         expect(page).to have_content(group.name)
-        expect(page).to have_content("Total guardian messages: 2")
+        expect(page).to have_css("#chart-2")
       end
     end
   end

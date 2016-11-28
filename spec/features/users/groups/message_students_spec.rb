@@ -35,7 +35,7 @@ RSpec.feature "user messages a group of students" do
       expect(current_path).to eq(group_path(group))
       within ".card-content" do
         expect(page).to have_content(group.name)
-        expect(page).to have_content("Total student messages: 2")
+        expect(page).to have_css("#chart-2")
       end
     end
   end

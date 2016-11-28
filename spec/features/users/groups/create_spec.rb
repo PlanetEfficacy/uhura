@@ -16,6 +16,8 @@ RSpec.feature "user creates a group" do
 
     within "div.card" do
       expect(page).to have_content("605")
+      expect(page).to_not have_css("#chart-1")
+      expect(page).to_not have_css("#chart-2")
       expect(page).to have_css("a.btn-floating.btn-small.waves-effect.waves-light.indigo.darken-3.group-text-btn")
     end
   end

@@ -5,24 +5,20 @@
         <h4><%= group.name %></h4>
       </div>
       <div class="container">
-        <table>
-          <tr>
-            <th>Enrollment count:</th>
-            <td><%= group.students.count %></td>
-          </tr>
-          <tr>
-            <th>Total student messages:</th>
-            <td><%= group.student_message_count %></td>
-          </tr>
-          <tr>
-            <th>Guardian count:</th>
-            <td><%= group.guardian_count %></td>
-          </tr>
-          <tr>
-            <th>Total guardian messages:</th>
-            <td><%= group.guardian_message_count %></td>
-          </tr>
-        </table>
+        <% if group.has_enrollment? %>
+          <%= bar_chart [ ["Students", group.students.active.count],
+                          ["Guardians", group.guardian_count]],
+                          max: group.enrollment_display_scale,
+                          label: "Enrollment",
+                          library: { title: 'Enrollment'} %>
+        <% end %>
+        <% if group.has_message? %>
+          <%= bar_chart [ ["Student", group.student_message_count],
+                          ["Guardian", group.guardian_message_count]],
+                          max: group.message_display_scale,
+                          label: "Messages",
+                          library: {title: 'Messages'} %>
+        <% end %>
       </div>
     </div>
   </div>
